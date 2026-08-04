@@ -1,56 +1,78 @@
-name: Apply BLC reset fix
+name: Build LBRCE.8xp
 
 on:
   push:
-    branches: ["agent/build-8xp-and-fix-self-test"]
-    paths: [".github/workflows/apply-reset-fix.yml"]
+    branches: [main, "agent/**"]
+  pull_request:
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  patch:
-    runs-on: ubuntu-latest
+  build-calculator-program:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
     steps:
-      - name: Check out branch
+      - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          ref: agent/build-8xp-and-fix-self-test
+          python-version: "3.11"
 
-      - name: Patch BLC coin clearing
+      - name: Install CE Toolchain v15.0
+        shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
+          set -euo pipefail
+          archive="$RUNNER_TEMP/CEdev-Linux.tar.gz"
+          install_dir="$RUNNER_TEMP/cedev-v15"
+          curl --fail --location --retry 3 \
+            --output "$archive" \
+            "https://github.com/CE-Programming/toolchain/releases/download/v15.0/CEdev-Linux.tar.gz"
+          mkdir -p "$install_dir"
+          tar -xzf "$archive" -C "$install_dir"
 
-          path = Path("src/game_state.cpp")
-          text = path.read_text(encoding="utf-8")
-          old = """        clear_early_run(state);
-                  clear_shop_upgrades(state, SHOP_LEAF, SHOP_COIN);
-                  if(keep_coins) {
-                      state.resources[RES_COINS] = saved_coins;
-                      for(uint8_t i = 0; i < UPGRADE_COUNT; i++)
-                          if(UPGRADE_DEFS[i].effect == EFFECT_PRINTER) state.upgrade_levels[i] = saved_printer;
-                  }
-                  game_add(state, RES_BLC, reward);"""
-          new = """        clear_early_run(state);
-                  clear_shop_upgrades(state, SHOP_LEAF, SHOP_COIN);
-                  if(keep_coins) {
-                      state.resources[RES_COINS] = saved_coins;
-                      for(uint8_t i = 0; i < UPGRADE_COUNT; i++)
-                          if(UPGRADE_DEFS[i].effect == EFFECT_PRINTER) state.upgrade_levels[i] = saved_printer;
-                  } else {
-                      state.resources[RES_COINS] = bn_zero();
-                  }
-                  game_add(state, RES_BLC, reward);"""
-          if text.count(old) != 1:
-              raise SystemExit("Expected BLC reset block was not found exactly once")
-          path.write_text(text.replace(old, new), encoding="utf-8")
-          PY
+          cedev_config="$(find "$install_dir" -name cedev-config -print -quit)"
+          if [[ -z "$cedev_config" ]]; then
+            echo "cedev-config was not found after extraction" >&2
+            exit 1
+          fi
 
-      - name: Commit fix
+          cedev_root="$(dirname "$(dirname "$cedev_config")")"
+          echo "$cedev_root/bin" >> "$GITHUB_PATH"
+          echo "CEDEV=$cedev_root/" >> "$GITHUB_ENV"
+          echo "CE Toolchain root: $cedev_root"
+
+      - name: Run host gameplay self-tests
+        shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/game_state.cpp
-          git commit -m "Fix BLC coin clearing"
-          git push origin HEAD:agent/build-8xp-and-fix-self-test
+          set -euo pipefail
+          common="src/big_num.cpp src/content.cpp src/game_state.cpp src/systems.cpp src/validation.cpp"
+          g++ -std=c++17 -Wall -Wextra -Werror -O2 -Isrc \
+            tests/runtime_self_test_host.cpp $common -o runtime_self_test
+          ./runtime_self_test
+
+      - name: Compile LBRCE.8xp
+        shell: bash
+        run: |
+          set -euo pipefail
+          cedev-config --makefile >/dev/null
+          make clean
+          make -j2
+          test -s bin/LBRCE.8xp
+
+      - name: Verify generated release
+        run: python tests/verify_release.py
+
+      - name: Upload calculator program
+        uses: actions/upload-artifact@v4
+        with:
+          name: LeafBlowerCE-${{ github.sha }}
+          path: |
+            bin/LBRCE.8xp
+            bin/LBRCE.map
+          if-no-files-found: error
+          retention-days: 30
