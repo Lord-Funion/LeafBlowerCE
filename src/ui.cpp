@@ -245,11 +245,8 @@ void draw_game(const GameState &state, const LeafField &field) {
     gfx_SetColor(COLOR_BLACK);
     gfx_Circle(px, py, 6);
     gfx_SetColor(COLOR_ORANGE);
-    gfx_FillTriangle(px + field.facing_x * 5, py + field.facing_y * 5,
-                     px + field.facing_x * 13 + field.facing_y * 4,
-                     py + field.facing_y * 13 - field.facing_x * 4,
-                     px + field.facing_x * 13 - field.facing_y * 4,
-                     py + field.facing_y * 13 + field.facing_x * 4);
+    gfx_Circle(px, py, 9);
+    gfx_Circle(px, py, 10);
     draw_header(AREA_DEFS[state.current_area].name, state);
     char status[44];
     std::snprintf(status, sizeof(status), "%s  Combo x%u", TOOL_DEFS[state.current_tool].name,
@@ -500,9 +497,9 @@ void draw_settings(const UiState &ui, const GameState &state) {
 void draw_controls(const GameState &state) {
     draw_header("Controls", state);
     const char *const lines[] = {
-            "Field: arrows move the blower", "Hold 2nd to blow leaves", "Enter opens the main menu",
-            "Menus: arrows move focus", "Enter buys, equips, or activates", "Left/right changes shop category",
-            "Clear returns; on field it saves/exits", "2nd: confirm/craft/ULC plan/abandon", "Mode returns directly to the field"
+            "Field: arrows move the blower", "Blower is always active", "Circular radius pushes leaves outward",
+            "Enter opens the main menu", "Menus: arrows move focus", "Enter buys, equips, or activates",
+            "Left/right changes shop category", "2nd: confirm/craft/ULC/abandon", "Mode: field  Clear: back/exit"
     };
     for(uint8_t i = 0; i < 9; i++) draw_text(lines[i], 12, 34 + i * 20, COLOR_WHITE, COLOR_BLACK);
     draw_footer("All actions use visible focus", "Clear: back");

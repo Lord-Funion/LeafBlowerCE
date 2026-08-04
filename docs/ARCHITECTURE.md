@@ -39,7 +39,7 @@ The value is `(mantissa / 1,000,000) * 10^exponent`. Nonzero values normalize to
 
 The display is 320x240, palettized GraphX double buffering. Backgrounds, UI panels, leaves, the blower, and the Harbor container are procedural shapes, so no proprietary game artwork or large bitmap is loaded. The loop targets about 30 frames per second with `delay(32)`. Expensive economy work runs once per RTC second; long gaps are evaluated in bulk rather than spawning visual objects.
 
-Ordinary leaves are collected at screen boundaries. Water Leaves only collect inside the Industrial Harbor job container. Autoblowers, printers, converters, seeds, materials, fishing, Harbor, Death Book, banks, and Quark progression have bulk or passive paths, including capped offline equivalents.
+The player blower is continuously active. Every particle inside its Euclidean circular radius receives an impulse along the particle-minus-player displacement vector, so movement direction and prior facing never aim the airflow. Ordinary leaves are collected at screen boundaries. Water Leaves only collect inside the Industrial Harbor job container. Autoblowers, printers, converters, seeds, materials, fishing, Harbor, Death Book, banks, and Quark progression have bulk or passive paths, including capped offline equivalents.
 
 ## Progression and resets
 
