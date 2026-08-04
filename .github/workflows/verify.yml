@@ -1,0 +1,28 @@
+name: Verify release
+
+on:
+  push:
+    branches: [main, "agent/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  host-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run release verification
+        run: python tests/verify_release.py
+
+      - name: Run focused regression tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
