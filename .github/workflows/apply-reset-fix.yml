@@ -1,0 +1,56 @@
+name: Apply BLC reset fix
+
+on:
+  push:
+    branches: ["agent/build-8xp-and-fix-self-test"]
+    paths: [".github/workflows/apply-reset-fix.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/build-8xp-and-fix-self-test
+
+      - name: Patch BLC coin clearing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("src/game_state.cpp")
+          text = path.read_text(encoding="utf-8")
+          old = """        clear_early_run(state);
+                  clear_shop_upgrades(state, SHOP_LEAF, SHOP_COIN);
+                  if(keep_coins) {
+                      state.resources[RES_COINS] = saved_coins;
+                      for(uint8_t i = 0; i < UPGRADE_COUNT; i++)
+                          if(UPGRADE_DEFS[i].effect == EFFECT_PRINTER) state.upgrade_levels[i] = saved_printer;
+                  }
+                  game_add(state, RES_BLC, reward);"""
+          new = """        clear_early_run(state);
+                  clear_shop_upgrades(state, SHOP_LEAF, SHOP_COIN);
+                  if(keep_coins) {
+                      state.resources[RES_COINS] = saved_coins;
+                      for(uint8_t i = 0; i < UPGRADE_COUNT; i++)
+                          if(UPGRADE_DEFS[i].effect == EFFECT_PRINTER) state.upgrade_levels[i] = saved_printer;
+                  } else {
+                      state.resources[RES_COINS] = bn_zero();
+                  }
+                  game_add(state, RES_BLC, reward);"""
+          if text.count(old) != 1:
+              raise SystemExit("Expected BLC reset block was not found exactly once")
+          path.write_text(text.replace(old, new), encoding="utf-8")
+          PY
+
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/game_state.cpp
+          git commit -m "Fix BLC coin clearing"
+          git push origin HEAD:agent/build-8xp-and-fix-self-test
