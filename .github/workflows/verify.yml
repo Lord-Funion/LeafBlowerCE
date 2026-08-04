@@ -4,6 +4,7 @@ on:
   push:
     branches: ["agent/always-on-radial-blower-v2"]
     paths: [".github/workflows/verify.yml"]
+  pull_request:
 
 permissions:
   contents: write
