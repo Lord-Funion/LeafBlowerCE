@@ -1,0 +1,30 @@
+name: Apply always-on radial blower
+
+on:
+  push:
+    branches: ["agent/always-on-radial-blower"]
+    paths: [".github/workflows/apply-radial-blower.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/always-on-radial-blower
+
+      - name: Apply gameplay, documentation, and test changes
+        run: python tools/apply_radial_blower_patch.py
+
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Make blower always-on and radial"
+          git push origin HEAD:agent/always-on-radial-blower
