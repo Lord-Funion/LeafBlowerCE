@@ -27,13 +27,14 @@ jobs:
       - name: Run focused regression tests
         run: python -m unittest discover -s tests -p "test_*.py" -v
 
-      - name: Compile calculator runtime self-test for host
-        run: >-
-          g++ -std=c++17 -Wall -Wextra -Werror -O2 -Isrc
-          tests/runtime_self_test_host.cpp
-          src/big_num.cpp src/content.cpp src/game_state.cpp
-          src/systems.cpp src/validation.cpp
-          -o runtime_self_test
+      - name: Compile host gameplay tests
+        run: |
+          COMMON="src/big_num.cpp src/content.cpp src/game_state.cpp src/systems.cpp src/validation.cpp"
+          g++ -std=c++17 -Wall -Wextra -Werror -O2 -Isrc tests/reset_self_test_host.cpp $COMMON -o reset_self_test
+          g++ -std=c++17 -Wall -Wextra -Werror -O2 -Isrc tests/runtime_self_test_host.cpp $COMMON -o runtime_self_test
+
+      - name: Execute detailed reset test
+        run: ./reset_self_test
 
       - name: Execute calculator runtime self-test
         run: ./runtime_self_test
