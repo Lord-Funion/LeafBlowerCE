@@ -28,6 +28,11 @@ class InputRepeatTests(unittest.TestCase):
         self.assertGreaterEqual(int(delay.group(1)), 8)
         self.assertGreaterEqual(int(interval.group(1)), 2)
 
+    def test_repeat_counter_rebases_before_overflow(self) -> None:
+        self.assertIn("INITIAL_REPEAT_DELAY + REPEAT_INTERVAL", SOURCE)
+        self.assertIn("held_frames[index] = INITIAL_REPEAT_DELAY;", SOURCE)
+        self.assertNotIn("held_frames[index] < 255", SOURCE)
+
     def test_action_keys_remain_edge_triggered(self) -> None:
         pressed = SOURCE.split("bool input_pressed", 1)[1].split("bool input_released", 1)[0]
         self.assertIn("newly_pressed || repeated", pressed)
