@@ -23,8 +23,6 @@ static void spawn_leaf(LeafField &field, GameState &state, LeafParticle &leaf) {
 void leaf_field_init(LeafField &field, GameState &state) {
     field.blower_x = 160 * 16;
     field.blower_y = 130 * 16;
-    field.facing_x = 1;
-    field.facing_y = 0;
     field.spawn_timer = 0;
     field.frame = 0;
     for(auto &leaf: field.leaves) leaf.active = false;
@@ -62,8 +60,38 @@ static void collect_leaf(LeafField &field, GameState &state, LeafParticle &leaf)
     spawn_leaf(field, state, leaf);
 }
 
+static int32_t absolute_value(int32_t value) {
+    return value < 0 ? -value : value;
+}
+
+static void apply_radial_push(LeafParticle &leaf, int32_t dx, int32_t dy, int32_t power) {
+    int32_t normalizer = absolute_value(dx);
+    int32_t abs_y = absolute_value(dy);
+    if(abs_y > normalizer) normalizer = abs_y;
+
+    /* A leaf exactly at the player has no geometric outward direction. Reuse
+       its existing motion when possible; otherwise give it a deterministic
+       nudge so it cannot remain pinned at the center. */
+    if(normalizer == 0) {
+        dx = leaf.vx;
+        dy = leaf.vy;
+        normalizer = absolute_value(dx);
+        abs_y = absolute_value(dy);
+        if(abs_y > normalizer) normalizer = abs_y;
+        if(normalizer == 0) {
+            leaf.vx += static_cast<int16_t>(power);
+            return;
+        }
+    }
+
+    /* Both components use the same divisor, preserving the displacement
+       vector's direction while avoiding floating-point math on the CE. */
+    leaf.vx += static_cast<int16_t>((dx * power) / normalizer);
+    leaf.vy += static_cast<int16_t>((dy * power) / normalizer);
+}
+
 void leaf_field_update(LeafField &field, GameState &state,
-                       int8_t move_x, int8_t move_y, bool blowing) {
+                       int8_t move_x, int8_t move_y) {
     field.frame++;
     uint16_t move_speed = static_cast<uint16_t>(24U + game_effect_level(state, EFFECT_MOVE_SPEED) * 3U);
     field.blower_x += move_x * move_speed;
@@ -72,10 +100,6 @@ void leaf_field_update(LeafField &field, GameState &state,
     if(field.blower_x > 311 * 16) field.blower_x = 311 * 16;
     if(field.blower_y < 30 * 16) field.blower_y = 30 * 16;
     if(field.blower_y > 231 * 16) field.blower_y = 231 * 16;
-    if(move_x || move_y) {
-        field.facing_x = move_x;
-        field.facing_y = move_y;
-    }
 
     uint8_t desired = 24U + static_cast<uint8_t>(game_effect_level(state, EFFECT_SPAWN_RATE) / 2U);
     if(desired > MAX_LEAVES) desired = MAX_LEAVES;
@@ -106,11 +130,8 @@ void leaf_field_update(LeafField &field, GameState &state,
         leaf.vy += static_cast<int16_t>((static_cast<int8_t>((leaf.phase >> 5U) & 3U) - 1) / 2);
         int32_t dx = leaf.x - field.blower_x;
         int32_t dy = leaf.y - field.blower_y;
-        if(blowing && dx * dx + dy * dy <= range_squared) {
-            leaf.vx += static_cast<int16_t>(field.facing_x * power);
-            leaf.vy += static_cast<int16_t>(field.facing_y * power);
-            if(field.facing_x == 0) leaf.vx += static_cast<int16_t>(dx > 0 ? 2 : -2);
-            if(field.facing_y == 0) leaf.vy += static_cast<int16_t>(dy > 0 ? 2 : -2);
+        if(dx * dx + dy * dy <= range_squared) {
+            apply_radial_push(leaf, dx, dy, power);
         }
         if(auto_active && (field.frame + i * 11U) % 90U < game_effect_level(state, EFFECT_ALB_COUNT)) {
             int16_t cx = 160 * 16;
