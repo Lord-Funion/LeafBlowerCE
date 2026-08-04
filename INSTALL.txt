@@ -1,0 +1,36 @@
+LEAF BLOWER REVOLUTION CE 1.0.0 - INSTALL
+
+Transfer these five files to a TI-84 Plus CE or TI-84 Plus CE Python Edition:
+
+  LBRCE.8xp
+  libload.8xv
+  fileioc.8xv
+  graphx.8xv
+  keypadc.8xv
+
+Use TI Connect CE or another compatible transfer program. If the same or a
+newer compatible CE Libraries v15 runtime is already installed, duplicate
+AppVars do not need to be transferred.
+
+Run LBRCE from the calculator's program menu. Newer calculator OS versions may
+require a current trusted native-program launcher such as arTIfiCE.
+
+FIELD CONTROLS
+  Arrow keys  Move and aim
+  Hold 2nd    Blow leaves
+  Enter       Open menu
+  Clear       Save and exit
+
+MENU CONTROLS
+  Up/Down     Move focus
+  Left/Right  Change category where shown
+  Enter       Select, buy, equip, travel, or activate
+  2nd         Alternate action, challenge abandon, ULC plan, or confirm
+  Mode        Return to field
+  Clear       Go back
+
+The game creates LBCSAVE, LBCBAK, and temporary LBCTMP AppVars itself. Do not
+install blank save files or manually edit those AppVars.
+
+This unofficial fan demake is not endorsed by Humble North or Texas
+Instruments. Read README.md and docs/LICENSES.md before redistribution.

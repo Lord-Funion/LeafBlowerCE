@@ -1,0 +1,9 @@
+path_or_component,author_or_source,license,modification,notes
+src/ui.cpp procedural palette and shapes,Project contributors,MIT,Original,No raster source asset
+src/leaf_field.cpp leaf and blower rendering,Project contributors,MIT,Original,GraphX primitives only
+fileioc.8xv,CE-Programming libraries v15.0,BSD-2-Clause,Unmodified,Required runtime AppVar
+graphx.8xv,CE-Programming libraries v15.0,BSD-2-Clause,Unmodified,Required runtime AppVar
+keypadc.8xv,CE-Programming libraries v15.0,BSD-2-Clause,Unmodified,Required runtime AppVar
+libload.8xv,CE-Programming libload,LGPL-3.0,Unmodified,Required shared library loader
+audio,None,N/A,None,The release contains no music or sound effects
+

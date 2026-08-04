@@ -1,0 +1,2059 @@
+
+Merging object attributes
+
+
+Discarded input sections
+
+ .comment       0x00000000      0x536 obj/LBRCE.o
+ .note.GNU-stack
+                0x00000000        0x0 obj/LBRCE.o
+ .init.weak_crt
+                0x00000000       0x10 obj/LBRCE.o
+ .text          0x00000000        0x0 obj/crt0.o
+ .data          0x00000000        0x0 obj/crt0.o
+ .bss           0x00000000        0x0 obj/crt0.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+prgm             0x00d1a87f         0x00400000
+bss              0x00d052c6         0x0000ed12
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00d1a87f                        LOAD_ADDR = 0xd1a87f
+                0x00d052c6                        BSSHEAP_LOW = 0xd052c6
+                0x00d13fd8                        BSSHEAP_HIGH = 0xd13fd8
+                0x00d1a87e                        STACK_HIGH = 0xd1a87e
+                0x00000001                        __TICE__ = 0x1
+                0x00d1a87f                        . = LOAD_ADDR
+
+.header         0x00d1a87f       0x22
+ *(.header)
+ .header        0x00d1a87f        0x3 obj/crt0.o
+ *(.header.icon)
+ .header.icon   0x00d1a882       0x1f obj/LBRCE.o
+                0x00d1a887                ___description
+
+.init           0x00d1a8a1      0x17e
+ *(.init)
+ .init          0x00d1a8a1      0x17e obj/crt0.o
+                0x00d1a8a1                __start
+                0x00d1a8fe                __libload_library_FILEIOC
+                0x00d1a908                _ti_Open
+                0x00d1a90c                _ti_Close
+                0x00d1a910                _ti_Write
+                0x00d1a914                _ti_Read
+                0x00d1a918                _ti_Delete
+                0x00d1a91c                _ti_IsArchived
+                0x00d1a920                _ti_SetArchiveStatus
+                0x00d1a924                _ti_GetSize
+                0x00d1a928                _ti_Rename
+                0x00d1a92c                _ti_SetGCBehavior
+                0x00d1a930                __libload_library_GRAPHX
+                0x00d1a939                _gfx_Begin
+                0x00d1a93d                _gfx_End
+                0x00d1a941                _gfx_SetColor
+                0x00d1a945                _gfx_FillScreen
+                0x00d1a949                _gfx_SetDraw
+                0x00d1a94d                _gfx_SwapDraw
+                0x00d1a951                _gfx_PrintStringXY
+                0x00d1a955                _gfx_SetTextBGColor
+                0x00d1a959                _gfx_SetTextFGColor
+                0x00d1a95d                _gfx_SetTextTransparentColor
+                0x00d1a961                _gfx_GetStringWidth
+                0x00d1a965                _gfx_Line
+                0x00d1a969                _gfx_HorizLine
+                0x00d1a96d                _gfx_Circle
+                0x00d1a971                _gfx_FillCircle
+                0x00d1a975                _gfx_FillRectangle
+                0x00d1a979                _gfx_FillTriangle
+                0x00d1a97d                _gfx_SetTextScale
+                0x00d1a981                __libload_library_KEYPADC
+                0x00d1a98b                _kb_Scan
+                0x00d1a98f                _kb_Reset
+                0x00d1a9e3                ___exithl
+                0x00d1a9e4                _exit.sp
+
+.text           0x00d1aa1f    0x19ce8
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(SORT_BY_NAME(.text.sorted.*))
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x00d1aa1f      0x671 obj/LBRCE.o
+                0x00d1aa1f                __land
+                0x00d1aa23                __iand
+                0x00d1aa3a                __bdivu
+                0x00d1aa44                __bdvrmu
+                0x00d1aa45                __bdvrmu.hijack_l_dividend
+                0x00d1aa53                __bshl
+                0x00d1aa5c                __bshru
+                0x00d1aa66                __dcmp
+                0x00d1aac4                __frameset
+                0x00d1aad2                __frameset0
+                0x00d1aadd                __ftod
+                0x00d1ab25                __idivu
+                0x00d1ab2d                __idvrmu
+                0x00d1ab31                __idvrmu.hijack_a_iters_ude_dividend
+                0x00d1ab47                __imulu
+                0x00d1ab47                __imuls
+                0x00d1ab77                __snot
+                0x00d1ab77                __inot
+                0x00d1ab81                __iremu
+                0x00d1ab88                __ishl
+                0x00d1ab88                __sshl
+                0x00d1abae                __ishru
+                0x00d1abb3                __ishrs
+                0x00d1abef                __ishru_1
+                0x00d1abfd                __ladd
+                0x00d1ac03                __lcmps
+                0x00d1ac10                __lcmpu
+                0x00d1ac18                __lequzero
+                0x00d1ac18                __lcmpzero
+                0x00d1ac23                __ldivu
+                0x00d1ac2d                __ldivu_lremu_common
+                0x00d1ac55                __lladd
+                0x00d1ac79                __lland
+                0x00d1acb5                __llcmps
+                0x00d1ace2                __llcmpu
+                0x00d1ad0c                __llequzero
+                0x00d1ad0c                __llcmpzero
+                0x00d1ad21                __lldivu
+                0x00d1ad35                __lldvrmu
+                0x00d1ad3c                __lldvrmu.hijack
+                0x00d1ad93                __llmulu
+                0x00d1ade8                __llor
+                0x00d1ae24                __llshl
+                0x00d1ae3e                __llshru
+                0x00d1ae6e                __llshrs
+                0x00d1aeaa                __llxor
+                0x00d1aee6                __lmuls
+                0x00d1aee6                __lmulu
+                0x00d1af42                __lneg
+                0x00d1af4f                __lnot
+                0x00d1af5c                __lremu
+                0x00d1af68                __lshl
+                0x00d1af75                __lshrs
+                0x00d1af8f                __lshru
+                0x00d1af9d                __lsub
+                0x00d1afa7                __lor
+                0x00d1afab                __ior
+                0x00d1afc2                __sand
+                0x00d1afcb                __sdivu
+                0x00d1afd3                __sdvrmu
+                0x00d1afe3                __setflag
+                0x00d1afed                __smulu
+                0x00d1afed                __smuls
+                0x00d1b000                __sor
+                0x00d1b009                __sremu
+                0x00d1b010                __sshrs
+                0x00d1b01d                __sshru
+                0x00d1b02a                __lxor
+                0x00d1b02e                __ixor
+                0x00d1b045                ___sleep_common.1
+                0x00d1b045                ___sleep_common
+                0x00d1b046                ___sleep_common.2
+                0x00d1b047                ___sleep_common.3
+                0x00d1b060                _clock
+                0x00d1b06b                _atomic_load_increasing_32
+ .text.__Z12bn_normalize6BigNum
+                0x00d1b090      0x136 obj/LBRCE.o
+                0x00d1b090                __Z12bn_normalize6BigNum
+ .text.__Z11bn_from_u32m
+                0x00d1b1c6       0x6a obj/LBRCE.o
+                0x00d1b1c6                __Z11bn_from_u32m
+ .text.__Z7bn_makems
+                0x00d1b230       0x3b obj/LBRCE.o
+                0x00d1b230                __Z7bn_makems
+ .text.__Z10bn_compare6BigNumS_
+                0x00d1b26b      0x10c obj/LBRCE.o
+                0x00d1b26b                __Z10bn_compare6BigNumS_
+ .text.__Z6bn_add6BigNumS_
+                0x00d1b377      0x1bb obj/LBRCE.o
+                0x00d1b377                __Z6bn_add6BigNumS_
+ .text.__Z6bn_sub6BigNumS_
+                0x00d1b532      0x186 obj/LBRCE.o
+                0x00d1b532                __Z6bn_sub6BigNumS_
+ .text.__Z6bn_mul6BigNumS_
+                0x00d1b6b8      0x168 obj/LBRCE.o
+                0x00d1b6b8                __Z6bn_mul6BigNumS_
+ .text.__Z6bn_div6BigNumS_
+                0x00d1b820      0x194 obj/LBRCE.o
+                0x00d1b820                __Z6bn_div6BigNumS_
+ .text.__Z10bn_mul_u326BigNumm
+                0x00d1b9b4       0x69 obj/LBRCE.o
+                0x00d1b9b4                __Z10bn_mul_u326BigNumm
+ .text.__Z10bn_div_u326BigNumm
+                0x00d1ba1d       0x69 obj/LBRCE.o
+                0x00d1ba1d                __Z10bn_div_u326BigNumm
+ .text.__Z17bn_scale_permille6BigNumm
+                0x00d1ba86       0xbd obj/LBRCE.o
+                0x00d1ba86                __Z17bn_scale_permille6BigNumm
+ .text.__Z15bn_pow_permillemt
+                0x00d1bb43      0x15e obj/LBRCE.o
+                0x00d1bb43                __Z15bn_pow_permillemt
+ .text.__Z17bn_geometric_cost6BigNummt
+                0x00d1bca1       0x6e obj/LBRCE.o
+                0x00d1bca1                __Z17bn_geometric_cost6BigNummt
+ .text.__Z14bn_log10_floor6BigNum
+                0x00d1bd0f       0x8b obj/LBRCE.o
+                0x00d1bd0f                __Z14bn_log10_floor6BigNum
+ .text.__Z17bn_to_u32_clamped6BigNumm
+                0x00d1bd9a      0x175 obj/LBRCE.o
+                0x00d1bd9a                __Z17bn_to_u32_clamped6BigNumm
+ .text.__Z9bn_format6BigNumPcj
+                0x00d1bf0f      0x129 obj/LBRCE.o
+                0x00d1bf0f                __Z9bn_format6BigNumPcj
+ .text.__Z8bn_valid6BigNum
+                0x00d1c038       0x59 obj/LBRCE.o
+                0x00d1c038                __Z8bn_valid6BigNum
+ .text.__Z12crc32_updatemPKvj
+                0x00d1c091       0xb1 obj/LBRCE.o
+                0x00d1c091                __Z12crc32_updatemPKvj
+ .text.__Z13crc32_computePKvj
+                0x00d1c142       0x1b obj/LBRCE.o
+                0x00d1c142                __Z13crc32_computePKvj
+ .text.__Z9game_randR9GameState
+                0x00d1c15d       0x93 obj/LBRCE.o
+                0x00d1c15d                __Z9game_randR9GameState
+ .text.__Z8game_newR9GameStatem
+                0x00d1c1f0       0xc5 obj/LBRCE.o
+                0x00d1c1f0                __Z8game_newR9GameStatem
+ .text.__Z16game_unlock_areaR9GameStateh
+                0x00d1c2b5       0x3b obj/LBRCE.o
+                0x00d1c2b5                __Z16game_unlock_areaR9GameStateh
+ .text.__Z13game_validateR9GameState
+                0x00d1c2f0      0x2a8 obj/LBRCE.o
+                0x00d1c2f0                __Z13game_validateR9GameState
+ .text.__Z18game_area_unlockedRK9GameStateh
+                0x00d1c598       0x44 obj/LBRCE.o
+                0x00d1c598                __Z18game_area_unlockedRK9GameStateh
+ .text.__Z24game_ulc_sacrifice_countRK9GameState
+                0x00d1c5dc       0x39 obj/LBRCE.o
+                0x00d1c5dc                __Z24game_ulc_sacrifice_countRK9GameState
+ .text.__Z23game_ulc_min_sacrificesRK9GameState
+                0x00d1c615       0x49 obj/LBRCE.o
+                0x00d1c615                __Z23game_ulc_min_sacrificesRK9GameState
+ .text.__Z17game_effect_levelRK9GameState13UpgradeEffect
+                0x00d1c65e       0xcc obj/LBRCE.o
+                0x00d1c65e                __Z17game_effect_levelRK9GameState13UpgradeEffect
+ .text.__Z8game_addR9GameState10ResourceId6BigNum
+                0x00d1c72a       0xfd obj/LBRCE.o
+                0x00d1c72a                __Z8game_addR9GameState10ResourceId6BigNum
+ .text.__Z10game_spendR9GameState10ResourceId6BigNum
+                0x00d1c827       0xbb obj/LBRCE.o
+                0x00d1c827                __Z10game_spendR9GameState10ResourceId6BigNum
+ .text.__Z20game_effect_permilleRK9GameState13UpgradeEffect
+                0x00d1c8e2      0x1e7 obj/LBRCE.o
+                0x00d1c8e2                __Z20game_effect_permilleRK9GameState13UpgradeEffect
+ .text.__Z17game_upgrade_costRK9GameStateh
+                0x00d1cac9       0xb0 obj/LBRCE.o
+                0x00d1cac9                __Z17game_upgrade_costRK9GameStateh
+ .text.__Z16game_buy_upgradeR9GameStateh
+                0x00d1cb79      0x13f obj/LBRCE.o
+                0x00d1cb79                __Z16game_buy_upgradeR9GameStateh
+ .text.__Z13game_buy_toolR9GameStateh
+                0x00d1ccb8      0x128 obj/LBRCE.o
+                0x00d1ccb8                __Z13game_buy_toolR9GameStateh
+ .text.__Z13game_buy_areaR9GameStateh
+                0x00d1cde0      0x1a9 obj/LBRCE.o
+                0x00d1cde0                __Z13game_buy_areaR9GameStateh
+ .text.__Z12game_buy_petR9GameStateh
+                0x00d1cf89      0x10c obj/LBRCE.o
+                0x00d1cf89                __Z12game_buy_petR9GameStateh
+ .text.__Z20game_refresh_unlocksR9GameState
+                0x00d1d095      0xaec obj/LBRCE.o
+                0x00d1d095                __Z20game_refresh_unlocksR9GameState
+ .text.__Z25game_toggle_ulc_sacrificeR9GameStateh
+                0x00d1db81       0xaf obj/LBRCE.o
+                0x00d1db81                __Z25game_toggle_ulc_sacrificeR9GameStateh
+ .text.__Z17game_reset_rewardRK9GameState9ResetTier
+                0x00d1dc30      0x38e obj/LBRCE.o
+                0x00d1dc30                __Z17game_reset_rewardRK9GameState9ResetTier
+ .text.__Z14game_can_resetRK9GameState9ResetTier
+                0x00d1dfbe       0x32 obj/LBRCE.o
+                0x00d1dfbe                __Z14game_can_resetRK9GameState9ResetTier
+ .text.__Z16game_apply_resetR9GameState9ResetTier
+                0x00d1dff0      0x9a7 obj/LBRCE.o
+                0x00d1dff0                __Z16game_apply_resetR9GameState9ResetTier
+ .text.__ZL15clear_early_runR9GameState
+                0x00d1e997       0x2f obj/LBRCE.o
+ .text.__ZL19clear_shop_upgradesR9GameState6ShopIdS1_
+                0x00d1e9c6       0x55 obj/LBRCE.o
+ .text.__ZL15clear_resourcesR9GameStatehh
+                0x00d1ea1b       0x6f obj/LBRCE.o
+ .text.__Z16game_tick_secondR9GameStatem
+                0x00d1ea8a      0x471 obj/LBRCE.o
+                0x00d1ea8a                __Z16game_tick_secondR9GameStatem
+ .text.__ZL12passive_rateRK9GameState
+                0x00d1eefb      0x16b obj/LBRCE.o
+ .text.__Z23game_check_achievementsR9GameState
+                0x00d1f066       0xbe obj/LBRCE.o
+                0x00d1f066                __Z23game_check_achievementsR9GameState
+ .text.__Z18game_apply_offlineR9GameStatem
+                0x00d1f124      0x87c obj/LBRCE.o
+                0x00d1f124                __Z18game_apply_offlineR9GameStatem
+ .text.__Z20game_start_challengeR9GameStateh
+                0x00d1f9a0      0x49c obj/LBRCE.o
+                0x00d1f9a0                __Z20game_start_challengeR9GameStateh
+ .text.__Z21game_finish_challengeR9GameState
+                0x00d1fe3c      0x1ae obj/LBRCE.o
+                0x00d1fe3c                __Z21game_finish_challengeR9GameState
+ .text.__ZL17restore_challengeR9GameState
+                0x00d1ffea      0x3e4 obj/LBRCE.o
+ .text.__Z22game_abandon_challengeR9GameState
+                0x00d203ce       0x1b obj/LBRCE.o
+                0x00d203ce                __Z22game_abandon_challengeR9GameState
+ .text.__Z10input_initR10InputState
+                0x00d203e9       0x53 obj/LBRCE.o
+                0x00d203e9                __Z10input_initR10InputState
+ .text.__Z10input_scanR10InputState
+                0x00d2043c       0x63 obj/LBRCE.o
+                0x00d2043c                __Z10input_scanR10InputState
+ .text.__Z15leaf_field_initR9LeafFieldR9GameState
+                0x00d2049f       0xd2 obj/LBRCE.o
+                0x00d2049f                __Z15leaf_field_initR9LeafFieldR9GameState
+ .text.__ZL10spawn_leafR9LeafFieldR9GameStateR12LeafParticle
+                0x00d20571       0xe2 obj/LBRCE.o
+ .text.__ZL20choose_leaf_resourceR9GameState
+                0x00d20653       0x4c obj/LBRCE.o
+ .text.__Z22leaf_field_change_areaR9LeafFieldR9GameState
+                0x00d2069f       0x63 obj/LBRCE.o
+                0x00d2069f                __Z22leaf_field_change_areaR9LeafFieldR9GameState
+ .text.__Z17leaf_field_updateR9LeafFieldR9GameStateaab
+                0x00d20702      0x71e obj/LBRCE.o
+                0x00d20702                __Z17leaf_field_updateR9LeafFieldR9GameStateaab
+ .text.__ZL12collect_leafR9LeafFieldR9GameStateR12LeafParticle
+                0x00d20e20      0x2ba obj/LBRCE.o
+ .text._main    0x00d210da      0x399 obj/LBRCE.o
+                0x00d210da                _main
+ .text.__ZN12_GLOBAL__N_117before_archive_gcEv
+                0x00d21473       0x12 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_116after_archive_gcEv
+                0x00d21485       0x19 obj/LBRCE.o
+ .text.__Z16save_rtc_secondsv
+                0x00d2149e      0x377 obj/LBRCE.o
+                0x00d2149e                __Z16save_rtc_secondsv
+ .text.__Z9save_loadR9GameStatemRm
+                0x00d21815      0x3ac obj/LBRCE.o
+                0x00d21815                __Z9save_loadR9GameStatemRm
+ .text.__ZN12_GLOBAL__N_111read_recordEPKcRNS_13SaveCandidateE
+                0x00d21bc1     0x15a3 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_117delete_if_presentEPKc
+                0x00d23164       0x42 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_126refresh_archived_candidateEPKcRNS_13SaveCandidateE
+                0x00d231a6       0xae obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_115ensure_archivedEPKc
+                0x00d23254       0x82 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_119verify_named_recordEPKcRK9GameState
+                0x00d232d6       0x86 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_118ensure_backup_copyERK9GameState
+                0x00d2335c       0x79 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_111finish_loadER9GameStateRKNS_13SaveCandidateEmRm
+                0x00d233d5      0x179 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_119write_verified_tempERK9GameState
+                0x00d2354e      0xb54 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_112pack_numbersEPNS_10WireBigNumEPK6BigNumh
+                0x00d240a2       0x42 obj/LBRCE.o
+ .text.__Z10save_writeR9GameStatem
+                0x00d240e4      0x1e9 obj/LBRCE.o
+                0x00d240e4                __Z10save_writeR9GameStatem
+ .text.__ZN12_GLOBAL__N_120state_semantic_validERK9GameState
+                0x00d242cd      0x664 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_119crafted_items_validEPK11CraftedItem
+                0x00d24931       0xb3 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_118trade_offers_validEPK10TradeOffer
+                0x00d249e4       0x8a obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_114unpack_numbersEP6BigNumPKNS_10WireBigNumEh
+                0x00d24a6e       0x42 obj/LBRCE.o
+ .text.__Z9save_autoR9GameStatemm
+                0x00d24ab0       0xb1 obj/LBRCE.o
+                0x00d24ab0                __Z9save_autoR9GameStatemm
+ .text.__Z30systems_persistent_state_validRK9GameState
+                0x00d24b61      0x107 obj/LBRCE.o
+                0x00d24b61                __Z30systems_persistent_state_validRK9GameState
+ .text.__ZN12_GLOBAL__N_123persistent_levels_validEPKt
+                0x00d24c68      0x154 obj/LBRCE.o
+ .text.__Z21systems_trade_presentRK9GameStateh
+                0x00d24dbc       0x30 obj/LBRCE.o
+                0x00d24dbc                __Z21systems_trade_presentRK9GameStateh
+ .text.__ZN12_GLOBAL__N_111valid_offerERK10TradeOffer
+                0x00d24dec       0x7f obj/LBRCE.o
+ .text.__Z23systems_generate_tradesR9GameStatem
+                0x00d24e6b      0x581 obj/LBRCE.o
+                0x00d24e6b                __Z23systems_generate_tradesR9GameStatem
+ .text.__ZN12_GLOBAL__N_116output_availableERK9GameState10ResourceId
+                0x00d253ec      0x170 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_114equipped_bonusERK9GameState13CraftProperty
+                0x00d2555c       0xf8 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_110valid_itemERK11CraftedItem
+                0x00d25654       0x27 obj/LBRCE.o
+ .text.__Z19systems_start_tradeR9GameStatehm
+                0x00d2567b      0x23c obj/LBRCE.o
+                0x00d2567b                __Z19systems_start_tradeR9GameStatehm
+ .text.__Z22systems_complete_tradeR9GameStatehm
+                0x00d258b7      0x16e obj/LBRCE.o
+                0x00d258b7                __Z22systems_complete_tradeR9GameStatehm
+ .text.__ZN12_GLOBAL__N_115action_completeER9GameState
+                0x00d25a25       0x21 obj/LBRCE.o
+ .text.__Z18systems_craft_itemR9GameStateh
+                0x00d25a46      0x25a obj/LBRCE.o
+                0x00d25a46                __Z18systems_craft_itemR9GameStateh
+ .text.__ZN12_GLOBAL__N_110spend_pairER9GameState10ResourceId6BigNumS2_S3_
+                0x00d25ca0      0x1fa obj/LBRCE.o
+ .text.__Z18systems_equip_itemR9GameStateh
+                0x00d25e9a      0x121 obj/LBRCE.o
+                0x00d25e9a                __Z18systems_equip_itemR9GameStateh
+ .text.__Z20systems_upgrade_itemR9GameStateh
+                0x00d25fbb      0x1bb obj/LBRCE.o
+                0x00d25fbb                __Z20systems_upgrade_itemR9GameStateh
+ .text.__Z12systems_brewR9GameState13AlchemyRecipe
+                0x00d26176      0x266 obj/LBRCE.o
+                0x00d26176                __Z12systems_brewR9GameState13AlchemyRecipe
+ .text.__ZN12_GLOBAL__N_114combined_bonusERK9GameState13CraftProperty8CardType
+                0x00d263dc      0x22e obj/LBRCE.o
+ .text.__Z29systems_start_artifact_searchR9GameStatem
+                0x00d2660a      0x165 obj/LBRCE.o
+                0x00d2660a                __Z29systems_start_artifact_searchR9GameStatem
+ .text.__Z24systems_collect_artifactR9GameStatem
+                0x00d2676f      0x237 obj/LBRCE.o
+                0x00d2676f                __Z24systems_collect_artifactR9GameStatem
+ .text.__Z18systems_tower_costRK9GameState
+                0x00d269a6       0x8c obj/LBRCE.o
+                0x00d269a6                __Z18systems_tower_costRK9GameState
+ .text.__Z21systems_advance_towerR9GameState
+                0x00d26a32      0x342 obj/LBRCE.o
+                0x00d26a32                __Z21systems_advance_towerR9GameState
+ .text.__ZN12_GLOBAL__N_112combat_bonusERK9GameState
+                0x00d26d74      0x167 obj/LBRCE.o
+ .text.__Z20systems_pyramid_costRK9GameState
+                0x00d26edb       0x8c obj/LBRCE.o
+                0x00d26edb                __Z20systems_pyramid_costRK9GameState
+ .text.__Z23systems_advance_pyramidR9GameState
+                0x00d26f67      0x275 obj/LBRCE.o
+                0x00d26f67                __Z23systems_advance_pyramidR9GameState
+ .text.__Z25systems_start_borbventureR9GameStatem
+                0x00d271dc      0x18f obj/LBRCE.o
+                0x00d271dc                __Z25systems_start_borbventureR9GameStatem
+ .text.__Z28systems_complete_borbventureR9GameStatem
+                0x00d2736b      0x2b1 obj/LBRCE.o
+                0x00d2736b                __Z28systems_complete_borbventureR9GameStatem
+ .text.__Z17systems_card_costRK9GameState8CardType
+                0x00d2761c       0xb8 obj/LBRCE.o
+                0x00d2761c                __Z17systems_card_costRK9GameState8CardType
+ .text.__Z20systems_upgrade_cardR9GameState8CardType
+                0x00d276d4       0xea obj/LBRCE.o
+                0x00d276d4                __Z20systems_upgrade_cardR9GameState8CardType
+ .text.__Z25systems_dice_upgrade_costRK9GameState
+                0x00d277be       0x8a obj/LBRCE.o
+                0x00d277be                __Z25systems_dice_upgrade_costRK9GameState
+ .text.__Z20systems_upgrade_diceR9GameState
+                0x00d27848       0xe2 obj/LBRCE.o
+                0x00d27848                __Z20systems_upgrade_diceR9GameState
+ .text.__Z17systems_roll_diceR9GameStatePh
+                0x00d2792a      0x371 obj/LBRCE.o
+                0x00d2792a                __Z17systems_roll_diceR9GameStatePh
+ .text.__Z23systems_death_book_costRK9GameState
+                0x00d27c9b       0x8c obj/LBRCE.o
+                0x00d27c9b                __Z23systems_death_book_costRK9GameState
+ .text.__Z26systems_upgrade_death_bookR9GameState
+                0x00d27d27       0xc1 obj/LBRCE.o
+                0x00d27d27                __Z26systems_upgrade_death_bookR9GameState
+ .text.__Z17systems_mine_costRK9GameState
+                0x00d27de8       0x8c obj/LBRCE.o
+                0x00d27de8                __Z17systems_mine_costRK9GameState
+ .text.__Z18systems_delve_mineR9GameState
+                0x00d27e74      0x24e obj/LBRCE.o
+                0x00d27e74                __Z18systems_delve_mineR9GameState
+ .text.__Z12systems_fishR9GameState
+                0x00d280c2      0x3b0 obj/LBRCE.o
+                0x00d280c2                __Z12systems_fishR9GameState
+ .text.__Z20systems_bank_depositR9GameState6BigNum
+                0x00d28472      0x188 obj/LBRCE.o
+                0x00d28472                __Z20systems_bank_depositR9GameState6BigNum
+ .text.__Z27systems_bank_claim_interestR9GameState
+                0x00d285fa      0x2b7 obj/LBRCE.o
+                0x00d285fa                __Z27systems_bank_claim_interestR9GameState
+ .text.__Z18systems_forge_soulR9GameState
+                0x00d288b1      0x3e0 obj/LBRCE.o
+                0x00d288b1                __Z18systems_forge_soulR9GameState
+ .text.__Z25systems_run_quark_reactorR9GameState
+                0x00d28c91      0x315 obj/LBRCE.o
+                0x00d28c91                __Z25systems_run_quark_reactorR9GameState
+ .text.__Z27systems_form_shadow_crystalR9GameState
+                0x00d28fa6      0x222 obj/LBRCE.o
+                0x00d28fa6                __Z27systems_form_shadow_crystalR9GameState
+ .text.__Z19systems_galaxy_costRK9GameState
+                0x00d291c8       0xdf obj/LBRCE.o
+                0x00d291c8                __Z19systems_galaxy_costRK9GameState
+ .text.__Z22systems_advance_galaxyR9GameState
+                0x00d292a7      0x2ff obj/LBRCE.o
+                0x00d292a7                __Z22systems_advance_galaxyR9GameState
+ .text.__Z12systems_tickR9GameStatem
+                0x00d295a6       0x58 obj/LBRCE.o
+                0x00d295a6                __Z12systems_tickR9GameStatem
+ .text.__Z22systems_primary_actionR9GameState8SystemIdm
+                0x00d295fe     0x47d3 obj/LBRCE.o
+                0x00d295fe                __Z22systems_primary_actionR9GameState8SystemIdm
+ .text.__ZN12_GLOBAL__N_111set_messageER7UiStatePKc
+                0x00d2ddd1       0x28 obj/LBRCE.o
+ .text.__Z16ui_init_graphicsv
+                0x00d2ddf9      0x10e obj/LBRCE.o
+                0x00d2ddf9                __Z16ui_init_graphicsv
+ .text.__Z15ui_handle_inputR7UiStateR9GameStateR9LeafFieldRK10InputStatem
+                0x00d2df07      0x7c9 obj/LBRCE.o
+                0x00d2df07                __Z15ui_handle_inputR7UiStateR9GameStateR9LeafFieldRK10InputStatem
+ .text.__ZN12_GLOBAL__N_114move_selectionER7UiStateRK10InputStateh
+                0x00d2e6d0       0x64 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_118shop_upgrade_countE6ShopId
+                0x00d2e734       0x4c obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_115shop_upgrade_atE6ShopIdh
+                0x00d2e780       0x5f obj/LBRCE.o
+ .text.__Z9ui_renderRK7UiStateRK9GameStateRK9LeafFieldm
+                0x00d2e7df     0x1ffc obj/LBRCE.o
+                0x00d2e7df                __Z9ui_renderRK7UiStateRK9GameStateRK9LeafFieldm
+ .text.__ZN12_GLOBAL__N_19draw_textEPKciihh
+                0x00d307db       0x4d obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_111draw_headerEPKcRK9GameState
+                0x00d30828       0xd8 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_111draw_footerEPKcS1_
+                0x00d30900       0x78 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_18draw_rowEhbPKcS1_b
+                0x00d30978       0xd4 obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_19draw_shopERK7UiStateRK9GameState6ShopIdPKc
+                0x00d30a4c      0x283 obj/LBRCE.o
+ .text.__Z17runtime_self_testR9GameState
+                0x00d30ccf     0x1f5e obj/LBRCE.o
+                0x00d30ccf                __Z17runtime_self_testR9GameState
+ .text.__ZN12_GLOBAL__N_19amount_isERK9GameState10ResourceIdm
+                0x00d32c2d       0x7a obj/LBRCE.o
+ .text.__ZN12_GLOBAL__N_116set_effect_levelER9GameState13UpgradeEffectt
+                0x00d32ca7       0x6f obj/LBRCE.o
+ .text._npf_vpprintf
+                0x00d32d16     0x1775 obj/LBRCE.o
+                0x00d32d16                _npf_vpprintf
+ .text._NPF_PUTC_IMPL
+                0x00d3448b       0x2d obj/LBRCE.o
+ .text._npf_utoa_rev
+                0x00d344b8       0xe6 obj/LBRCE.o
+ .text._vsnprintf
+                0x00d3459e       0x88 obj/LBRCE.o
+                0x00d3459e                _vsnprintf
+ .text._npf_bufputc
+                0x00d34626       0x25 obj/LBRCE.o
+ .text._npf_bufputc_nop
+                0x00d3464b        0x7 obj/LBRCE.o
+ .text._snprintf
+                0x00d34652       0x28 obj/LBRCE.o
+                0x00d34652                _snprintf
+ .text.__bctlz  0x00d3467a       0x22 obj/LBRCE.o
+                0x00d3467a                __bctlz
+ .text.__sctlz  0x00d3469c        0xc obj/LBRCE.o
+                0x00d3469c                __sctlz
+ .text.__ictlz  0x00d346a8       0x12 obj/LBRCE.o
+                0x00d346a8                __ictlz
+ .text.__llctlz
+                0x00d346ba        0xe obj/LBRCE.o
+                0x00d346ba                __llctlz
+ .text.__i48ctlz
+                0x00d346c8       0x15 obj/LBRCE.o
+                0x00d346c8                __i48ctlz
+ .text._delay   0x00d346dd       0x2a obj/LBRCE.o
+                0x00d346dd                _delay
+                0x00d346dd                _msleep
+ *(.gnu.warning)
+
+.rodata         0x00d34708     0x34de
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.__Z17game_reset_rewardRK9GameState9ResetTier
+                0x00d34708        0xf obj/LBRCE.o
+ .rodata.__Z21game_finish_challengeR9GameState
+                0x00d34717       0x12 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_116output_availableERK9GameState10ResourceId
+                0x00d34729       0x18 obj/LBRCE.o
+ .rodata.__Z22systems_primary_actionR9GameState8SystemIdm
+                0x00d34741       0xa2 obj/LBRCE.o
+ .rodata.__Z15ui_handle_inputR7UiStateR9GameStateR9LeafFieldRK10InputStatem
+                0x00d347e3       0x30 obj/LBRCE.o
+ .rodata.__Z9ui_renderRK7UiStateRK9GameStateRK9LeafFieldm
+                0x00d34813       0x48 obj/LBRCE.o
+ .rodata._.str  0x00d3485b        0x6 obj/LBRCE.o
+ .rodata._.str.1
+                0x00d34861        0x8 obj/LBRCE.o
+ .rodata._.str.2
+                0x00d34869       0x11 obj/LBRCE.o
+ .rodata.__ZZL9pow10_u32hE6values
+                0x00d3487a       0x20 obj/LBRCE.o
+ .rodata._.str.3
+                0x00d3489a        0x7 obj/LBRCE.o
+ .rodata._.str.1.4
+                0x00d348a1        0x5 obj/LBRCE.o
+ .rodata._.str.2.5
+                0x00d348a6        0xc obj/LBRCE.o
+ .rodata._.str.3.6
+                0x00d348b2        0x5 obj/LBRCE.o
+ .rodata._.str.4
+                0x00d348b7       0x10 obj/LBRCE.o
+ .rodata._.str.5
+                0x00d348c7        0x5 obj/LBRCE.o
+ .rodata._.str.6
+                0x00d348cc        0xf obj/LBRCE.o
+ .rodata._.str.7
+                0x00d348db        0x5 obj/LBRCE.o
+ .rodata._.str.8
+                0x00d348e0        0xe obj/LBRCE.o
+ .rodata._.str.9
+                0x00d348ee        0x4 obj/LBRCE.o
+ .rodata._.str.10
+                0x00d348f2        0xc obj/LBRCE.o
+ .rodata._.str.11
+                0x00d348fe        0x5 obj/LBRCE.o
+ .rodata._.str.12
+                0x00d34903        0xe obj/LBRCE.o
+ .rodata._.str.13
+                0x00d34911        0x5 obj/LBRCE.o
+ .rodata._.str.14
+                0x00d34916       0x11 obj/LBRCE.o
+ .rodata._.str.15
+                0x00d34927        0x5 obj/LBRCE.o
+ .rodata._.str.16
+                0x00d3492c       0x10 obj/LBRCE.o
+ .rodata._.str.17
+                0x00d3493c        0x5 obj/LBRCE.o
+ .rodata._.str.18
+                0x00d34941        0xc obj/LBRCE.o
+ .rodata._.str.19
+                0x00d3494d        0x5 obj/LBRCE.o
+ .rodata._.str.20
+                0x00d34952        0xb obj/LBRCE.o
+ .rodata._.str.21
+                0x00d3495d        0x4 obj/LBRCE.o
+ .rodata._.str.22
+                0x00d34961       0x10 obj/LBRCE.o
+ .rodata._.str.23
+                0x00d34971        0x5 obj/LBRCE.o
+ .rodata._.str.24
+                0x00d34976        0xf obj/LBRCE.o
+ .rodata._.str.25
+                0x00d34985        0x5 obj/LBRCE.o
+ .rodata._.str.26
+                0x00d3498a       0x11 obj/LBRCE.o
+ .rodata._.str.27
+                0x00d3499b        0x5 obj/LBRCE.o
+ .rodata._.str.28
+                0x00d349a0       0x11 obj/LBRCE.o
+ .rodata._.str.29
+                0x00d349b1        0x5 obj/LBRCE.o
+ .rodata._.str.30
+                0x00d349b6        0xc obj/LBRCE.o
+ .rodata._.str.31
+                0x00d349c2        0x5 obj/LBRCE.o
+ .rodata._.str.32
+                0x00d349c7        0xf obj/LBRCE.o
+ .rodata._.str.33
+                0x00d349d6        0x5 obj/LBRCE.o
+ .rodata._.str.34
+                0x00d349db        0xe obj/LBRCE.o
+ .rodata._.str.35
+                0x00d349e9        0x5 obj/LBRCE.o
+ .rodata._.str.36
+                0x00d349ee        0xf obj/LBRCE.o
+ .rodata._.str.37
+                0x00d349fd        0x5 obj/LBRCE.o
+ .rodata._.str.38
+                0x00d34a02       0x11 obj/LBRCE.o
+ .rodata._.str.39
+                0x00d34a13        0x5 obj/LBRCE.o
+ .rodata._.str.40
+                0x00d34a18       0x10 obj/LBRCE.o
+ .rodata._.str.41
+                0x00d34a28        0x5 obj/LBRCE.o
+ .rodata._.str.42
+                0x00d34a2d        0xe obj/LBRCE.o
+ .rodata._.str.43
+                0x00d34a3b        0x5 obj/LBRCE.o
+ .rodata._.str.44
+                0x00d34a40       0x12 obj/LBRCE.o
+ .rodata._.str.45
+                0x00d34a52        0x5 obj/LBRCE.o
+ .rodata._.str.46
+                0x00d34a57        0xf obj/LBRCE.o
+ .rodata._.str.47
+                0x00d34a66        0x5 obj/LBRCE.o
+ .rodata._.str.48
+                0x00d34a6b        0xb obj/LBRCE.o
+ .rodata._.str.49
+                0x00d34a76        0x5 obj/LBRCE.o
+ .rodata._.str.50
+                0x00d34a7b        0xe obj/LBRCE.o
+ .rodata._.str.51
+                0x00d34a89        0x5 obj/LBRCE.o
+ .rodata._.str.52
+                0x00d34a8e        0xe obj/LBRCE.o
+ .rodata._.str.53
+                0x00d34a9c        0x5 obj/LBRCE.o
+ .rodata._.str.54
+                0x00d34aa1        0xd obj/LBRCE.o
+ .rodata._.str.55
+                0x00d34aae        0x5 obj/LBRCE.o
+ .rodata._.str.56
+                0x00d34ab3        0xc obj/LBRCE.o
+ .rodata._.str.57
+                0x00d34abf        0x5 obj/LBRCE.o
+ .rodata._.str.58
+                0x00d34ac4        0xe obj/LBRCE.o
+ .rodata._.str.59
+                0x00d34ad2        0x5 obj/LBRCE.o
+ .rodata._.str.60
+                0x00d34ad7        0xd obj/LBRCE.o
+ .rodata._.str.61
+                0x00d34ae4        0x5 obj/LBRCE.o
+ .rodata._.str.62
+                0x00d34ae9        0xf obj/LBRCE.o
+ .rodata._.str.63
+                0x00d34af8        0x5 obj/LBRCE.o
+ .rodata._.str.64
+                0x00d34afd        0xa obj/LBRCE.o
+ .rodata._.str.65
+                0x00d34b07        0x4 obj/LBRCE.o
+ .rodata._.str.66
+                0x00d34b0b        0xa obj/LBRCE.o
+ .rodata._.str.67
+                0x00d34b15        0x4 obj/LBRCE.o
+ .rodata._.str.68
+                0x00d34b19        0xa obj/LBRCE.o
+ .rodata._.str.69
+                0x00d34b23        0x4 obj/LBRCE.o
+ .rodata._.str.70
+                0x00d34b27        0x5 obj/LBRCE.o
+ .rodata._.str.71
+                0x00d34b2c        0x4 obj/LBRCE.o
+ .rodata._.str.72
+                0x00d34b30        0x7 obj/LBRCE.o
+ .rodata._.str.73
+                0x00d34b37        0x4 obj/LBRCE.o
+ .rodata._.str.75
+                0x00d34b3b        0x4 obj/LBRCE.o
+ .rodata._.str.76
+                0x00d34b3f        0x8 obj/LBRCE.o
+ .rodata._.str.77
+                0x00d34b47        0x4 obj/LBRCE.o
+ .rodata._.str.78
+                0x00d34b4b        0x6 obj/LBRCE.o
+ .rodata._.str.79
+                0x00d34b51        0x6 obj/LBRCE.o
+ .rodata._.str.80
+                0x00d34b57        0x5 obj/LBRCE.o
+ .rodata._.str.81
+                0x00d34b5c        0xb obj/LBRCE.o
+ .rodata._.str.82
+                0x00d34b67        0x5 obj/LBRCE.o
+ .rodata._.str.83
+                0x00d34b6c        0xc obj/LBRCE.o
+ .rodata._.str.85
+                0x00d34b78        0x6 obj/LBRCE.o
+ .rodata._.str.86
+                0x00d34b7e        0x5 obj/LBRCE.o
+ .rodata._.str.87
+                0x00d34b83        0x7 obj/LBRCE.o
+ .rodata._.str.88
+                0x00d34b8a        0x6 obj/LBRCE.o
+ .rodata._.str.89
+                0x00d34b90        0xe obj/LBRCE.o
+ .rodata._.str.90
+                0x00d34b9e        0x6 obj/LBRCE.o
+ .rodata._.str.91
+                0x00d34ba4       0x10 obj/LBRCE.o
+ .rodata._.str.92
+                0x00d34bb4        0x5 obj/LBRCE.o
+ .rodata._.str.93
+                0x00d34bb9        0x7 obj/LBRCE.o
+ .rodata._.str.94
+                0x00d34bc0        0x4 obj/LBRCE.o
+ .rodata._.str.95
+                0x00d34bc4        0x5 obj/LBRCE.o
+ .rodata._.str.96
+                0x00d34bc9        0x7 obj/LBRCE.o
+ .rodata._.str.97
+                0x00d34bd0        0x6 obj/LBRCE.o
+ .rodata._.str.98
+                0x00d34bd6        0xe obj/LBRCE.o
+ .rodata._.str.99
+                0x00d34be4        0x5 obj/LBRCE.o
+ .rodata._.str.100
+                0x00d34be9        0xc obj/LBRCE.o
+ .rodata._.str.101
+                0x00d34bf5        0x5 obj/LBRCE.o
+ .rodata._.str.102
+                0x00d34bfa        0x7 obj/LBRCE.o
+ .rodata._.str.103
+                0x00d34c01        0x6 obj/LBRCE.o
+ .rodata._.str.104
+                0x00d34c07        0xc obj/LBRCE.o
+ .rodata._.str.105
+                0x00d34c13        0x5 obj/LBRCE.o
+ .rodata._.str.106
+                0x00d34c18        0xa obj/LBRCE.o
+ .rodata._.str.107
+                0x00d34c22        0x5 obj/LBRCE.o
+ .rodata._.str.108
+                0x00d34c27        0xd obj/LBRCE.o
+ .rodata._.str.109
+                0x00d34c34        0x5 obj/LBRCE.o
+ .rodata._.str.110
+                0x00d34c39       0x10 obj/LBRCE.o
+ .rodata._.str.111
+                0x00d34c49        0x6 obj/LBRCE.o
+ .rodata._.str.112
+                0x00d34c4f        0xd obj/LBRCE.o
+ .rodata._.str.113
+                0x00d34c5c        0x6 obj/LBRCE.o
+ .rodata._.str.114
+                0x00d34c62        0xf obj/LBRCE.o
+ .rodata._.str.115
+                0x00d34c71        0x7 obj/LBRCE.o
+ .rodata._.str.116
+                0x00d34c78        0xa obj/LBRCE.o
+ .rodata._.str.117
+                0x00d34c82        0x5 obj/LBRCE.o
+ .rodata._.str.118
+                0x00d34c87        0xd obj/LBRCE.o
+ .rodata._.str.119
+                0x00d34c94        0x6 obj/LBRCE.o
+ .rodata._.str.120
+                0x00d34c9a        0xc obj/LBRCE.o
+ .rodata._.str.121
+                0x00d34ca6        0x5 obj/LBRCE.o
+ .rodata._.str.122
+                0x00d34cab        0xd obj/LBRCE.o
+ .rodata._.str.123
+                0x00d34cb8        0x6 obj/LBRCE.o
+ .rodata._.str.124
+                0x00d34cbe       0x10 obj/LBRCE.o
+ .rodata._.str.125
+                0x00d34cce        0x6 obj/LBRCE.o
+ .rodata._.str.126
+                0x00d34cd4        0xf obj/LBRCE.o
+ .rodata._.str.127
+                0x00d34ce3        0x5 obj/LBRCE.o
+ .rodata._.str.128
+                0x00d34ce8        0xf obj/LBRCE.o
+ .rodata._.str.129
+                0x00d34cf7        0x5 obj/LBRCE.o
+ .rodata._.str.130
+                0x00d34cfc       0x11 obj/LBRCE.o
+ .rodata._.str.131
+                0x00d34d0d        0x5 obj/LBRCE.o
+ .rodata._.str.132
+                0x00d34d12        0xc obj/LBRCE.o
+ .rodata._.str.133
+                0x00d34d1e        0x5 obj/LBRCE.o
+ .rodata._.str.134
+                0x00d34d23        0xf obj/LBRCE.o
+ .rodata._.str.135
+                0x00d34d32        0x5 obj/LBRCE.o
+ .rodata._.str.136
+                0x00d34d37        0xf obj/LBRCE.o
+ .rodata._.str.137
+                0x00d34d46        0x5 obj/LBRCE.o
+ .rodata._.str.138
+                0x00d34d4b        0xf obj/LBRCE.o
+ .rodata._.str.139
+                0x00d34d5a        0x5 obj/LBRCE.o
+ .rodata._.str.140
+                0x00d34d5f       0x12 obj/LBRCE.o
+ .rodata._.str.141
+                0x00d34d71        0x6 obj/LBRCE.o
+ .rodata._.str.142
+                0x00d34d77        0xc obj/LBRCE.o
+ .rodata._.str.143
+                0x00d34d83        0x6 obj/LBRCE.o
+ .rodata._.str.144
+                0x00d34d89        0xd obj/LBRCE.o
+ .rodata._.str.145
+                0x00d34d96        0x6 obj/LBRCE.o
+ .rodata._.str.149
+                0x00d34d9c        0x9 obj/LBRCE.o
+ .rodata._.str.150
+                0x00d34da5        0xb obj/LBRCE.o
+ .rodata._.str.151
+                0x00d34db0        0x7 obj/LBRCE.o
+ .rodata._.str.153
+                0x00d34db7        0x6 obj/LBRCE.o
+ .rodata._.str.154
+                0x00d34dbd        0xc obj/LBRCE.o
+ .rodata._.str.157
+                0x00d34dc9        0x9 obj/LBRCE.o
+ .rodata._.str.158
+                0x00d34dd2        0x8 obj/LBRCE.o
+ .rodata._.str.159
+                0x00d34dda        0xa obj/LBRCE.o
+ .rodata._.str.160
+                0x00d34de4        0xb obj/LBRCE.o
+ .rodata._.str.164
+                0x00d34def        0x8 obj/LBRCE.o
+ .rodata._.str.167
+                0x00d34df7        0xb obj/LBRCE.o
+ .rodata._.str.169
+                0x00d34e02        0x8 obj/LBRCE.o
+ .rodata._.str.171
+                0x00d34e0a        0x6 obj/LBRCE.o
+ .rodata._.str.172
+                0x00d34e10        0xb obj/LBRCE.o
+ .rodata._.str.173
+                0x00d34e1b        0xe obj/LBRCE.o
+ .rodata._.str.174
+                0x00d34e29        0xf obj/LBRCE.o
+ .rodata._.str.175
+                0x00d34e38        0x9 obj/LBRCE.o
+ .rodata._.str.176
+                0x00d34e41       0x10 obj/LBRCE.o
+ .rodata._.str.177
+                0x00d34e51        0xe obj/LBRCE.o
+ .rodata._.str.178
+                0x00d34e5f        0xb obj/LBRCE.o
+ .rodata._.str.179
+                0x00d34e6a        0x8 obj/LBRCE.o
+ .rodata._.str.180
+                0x00d34e72        0x7 obj/LBRCE.o
+ .rodata._.str.181
+                0x00d34e79       0x13 obj/LBRCE.o
+ .rodata._.str.184
+                0x00d34e8c        0x8 obj/LBRCE.o
+ .rodata._.str.185
+                0x00d34e94        0xb obj/LBRCE.o
+ .rodata._.str.186
+                0x00d34e9f        0xc obj/LBRCE.o
+ .rodata._.str.187
+                0x00d34eab        0xb obj/LBRCE.o
+ .rodata._.str.188
+                0x00d34eb6        0x6 obj/LBRCE.o
+ .rodata._.str.189
+                0x00d34ebc       0x12 obj/LBRCE.o
+ .rodata._.str.190
+                0x00d34ece        0xc obj/LBRCE.o
+ .rodata._.str.191
+                0x00d34eda        0xf obj/LBRCE.o
+ .rodata._.str.192
+                0x00d34ee9        0xb obj/LBRCE.o
+ .rodata._.str.193
+                0x00d34ef4        0xd obj/LBRCE.o
+ .rodata._.str.194
+                0x00d34f01       0x11 obj/LBRCE.o
+ .rodata._.str.195
+                0x00d34f12        0xc obj/LBRCE.o
+ .rodata._.str.196
+                0x00d34f1e        0xc obj/LBRCE.o
+ .rodata._.str.197
+                0x00d34f2a       0x12 obj/LBRCE.o
+ .rodata._.str.198
+                0x00d34f3c        0x9 obj/LBRCE.o
+ .rodata._.str.199
+                0x00d34f45        0x6 obj/LBRCE.o
+ .rodata._.str.200
+                0x00d34f4b        0x9 obj/LBRCE.o
+ .rodata._.str.201
+                0x00d34f54        0xa obj/LBRCE.o
+ .rodata._.str.202
+                0x00d34f5e       0x14 obj/LBRCE.o
+ .rodata._.str.203
+                0x00d34f72       0x14 obj/LBRCE.o
+ .rodata._.str.204
+                0x00d34f86        0xc obj/LBRCE.o
+ .rodata._.str.205
+                0x00d34f92       0x1f obj/LBRCE.o
+ .rodata._.str.206
+                0x00d34fb1        0xf obj/LBRCE.o
+ .rodata._.str.207
+                0x00d34fc0       0x10 obj/LBRCE.o
+ .rodata._.str.208
+                0x00d34fd0        0xf obj/LBRCE.o
+ .rodata._.str.209
+                0x00d34fdf        0x9 obj/LBRCE.o
+ .rodata._.str.210
+                0x00d34fe8       0x14 obj/LBRCE.o
+ .rodata._.str.211
+                0x00d34ffc       0x13 obj/LBRCE.o
+ .rodata._.str.212
+                0x00d3500f       0x19 obj/LBRCE.o
+ .rodata._.str.213
+                0x00d35028        0xc obj/LBRCE.o
+ .rodata._.str.214
+                0x00d35034       0x13 obj/LBRCE.o
+ .rodata._.str.215
+                0x00d35047        0xf obj/LBRCE.o
+ .rodata._.str.216
+                0x00d35056       0x10 obj/LBRCE.o
+ .rodata._.str.217
+                0x00d35066        0xe obj/LBRCE.o
+ .rodata._.str.218
+                0x00d35074       0x11 obj/LBRCE.o
+ .rodata._.str.219
+                0x00d35085        0xa obj/LBRCE.o
+ .rodata._.str.220
+                0x00d3508f        0xf obj/LBRCE.o
+ .rodata._.str.221
+                0x00d3509e        0xb obj/LBRCE.o
+ .rodata._.str.222
+                0x00d350a9        0xf obj/LBRCE.o
+ .rodata._.str.223
+                0x00d350b8       0x13 obj/LBRCE.o
+ .rodata._.str.224
+                0x00d350cb       0x14 obj/LBRCE.o
+ .rodata._.str.225
+                0x00d350df       0x12 obj/LBRCE.o
+ .rodata._.str.226
+                0x00d350f1        0xe obj/LBRCE.o
+ .rodata._.str.227
+                0x00d350ff        0xc obj/LBRCE.o
+ .rodata._.str.228
+                0x00d3510b        0xd obj/LBRCE.o
+ .rodata._.str.229
+                0x00d35118        0xd obj/LBRCE.o
+ .rodata._.str.230
+                0x00d35125        0xe obj/LBRCE.o
+ .rodata._.str.231
+                0x00d35133        0xe obj/LBRCE.o
+ .rodata._.str.232
+                0x00d35141       0x11 obj/LBRCE.o
+ .rodata._.str.233
+                0x00d35152       0x12 obj/LBRCE.o
+ .rodata._.str.234
+                0x00d35164       0x10 obj/LBRCE.o
+ .rodata._.str.235
+                0x00d35174       0x13 obj/LBRCE.o
+ .rodata._.str.236
+                0x00d35187       0x12 obj/LBRCE.o
+ .rodata._.str.237
+                0x00d35199       0x11 obj/LBRCE.o
+ .rodata._.str.238
+                0x00d351aa       0x13 obj/LBRCE.o
+ .rodata._.str.239
+                0x00d351bd       0x13 obj/LBRCE.o
+ .rodata._.str.240
+                0x00d351d0       0x12 obj/LBRCE.o
+ .rodata._.str.241
+                0x00d351e2        0xe obj/LBRCE.o
+ .rodata._.str.242
+                0x00d351f0       0x11 obj/LBRCE.o
+ .rodata._.str.243
+                0x00d35201       0x10 obj/LBRCE.o
+ .rodata._.str.244
+                0x00d35211        0xe obj/LBRCE.o
+ .rodata._.str.245
+                0x00d3521f       0x12 obj/LBRCE.o
+ .rodata._.str.246
+                0x00d35231        0xc obj/LBRCE.o
+ .rodata._.str.247
+                0x00d3523d        0xc obj/LBRCE.o
+ .rodata._.str.248
+                0x00d35249        0xb obj/LBRCE.o
+ .rodata._.str.249
+                0x00d35254       0x1c obj/LBRCE.o
+ .rodata._.str.250
+                0x00d35270        0xd obj/LBRCE.o
+ .rodata._.str.251
+                0x00d3527d       0x11 obj/LBRCE.o
+ .rodata._.str.252
+                0x00d3528e        0xc obj/LBRCE.o
+ .rodata._.str.253
+                0x00d3529a        0xf obj/LBRCE.o
+ .rodata._.str.254
+                0x00d352a9        0xd obj/LBRCE.o
+ .rodata._.str.255
+                0x00d352b6       0x15 obj/LBRCE.o
+ .rodata._.str.256
+                0x00d352cb        0xd obj/LBRCE.o
+ .rodata._.str.257
+                0x00d352d8        0xd obj/LBRCE.o
+ .rodata._.str.258
+                0x00d352e5       0x10 obj/LBRCE.o
+ .rodata._.str.259
+                0x00d352f5        0xf obj/LBRCE.o
+ .rodata._.str.260
+                0x00d35304       0x11 obj/LBRCE.o
+ .rodata._.str.261
+                0x00d35315        0xa obj/LBRCE.o
+ .rodata._.str.262
+                0x00d3531f        0xf obj/LBRCE.o
+ .rodata._.str.263
+                0x00d3532e       0x12 obj/LBRCE.o
+ .rodata._.str.264
+                0x00d35340        0xc obj/LBRCE.o
+ .rodata._.str.265
+                0x00d3534c       0x11 obj/LBRCE.o
+ .rodata._.str.266
+                0x00d3535d        0xb obj/LBRCE.o
+ .rodata._.str.267
+                0x00d35368       0x10 obj/LBRCE.o
+ .rodata._.str.268
+                0x00d35378        0xd obj/LBRCE.o
+ .rodata._.str.269
+                0x00d35385       0x10 obj/LBRCE.o
+ .rodata._.str.270
+                0x00d35395        0x6 obj/LBRCE.o
+ .rodata._.str.271
+                0x00d3539b        0xb obj/LBRCE.o
+ .rodata._.str.272
+                0x00d353a6        0xb obj/LBRCE.o
+ .rodata._.str.273
+                0x00d353b1        0xc obj/LBRCE.o
+ .rodata._.str.274
+                0x00d353bd       0x10 obj/LBRCE.o
+ .rodata._.str.275
+                0x00d353cd        0xf obj/LBRCE.o
+ .rodata._.str.276
+                0x00d353dc        0xb obj/LBRCE.o
+ .rodata._.str.277
+                0x00d353e7       0x11 obj/LBRCE.o
+ .rodata._.str.278
+                0x00d353f8        0xf obj/LBRCE.o
+ .rodata._.str.279
+                0x00d35407        0xe obj/LBRCE.o
+ .rodata._.str.280
+                0x00d35415        0xd obj/LBRCE.o
+ .rodata._.str.281
+                0x00d35422        0xd obj/LBRCE.o
+ .rodata._.str.282
+                0x00d3542f        0xd obj/LBRCE.o
+ .rodata._.str.283
+                0x00d3543c        0xb obj/LBRCE.o
+ .rodata._.str.284
+                0x00d35447        0xe obj/LBRCE.o
+ .rodata._.str.285
+                0x00d35455        0xd obj/LBRCE.o
+ .rodata._.str.286
+                0x00d35462        0xb obj/LBRCE.o
+ .rodata._.str.287
+                0x00d3546d       0x13 obj/LBRCE.o
+ .rodata._.str.288
+                0x00d35480        0xb obj/LBRCE.o
+ .rodata._.str.289
+                0x00d3548b       0x15 obj/LBRCE.o
+ .rodata._.str.290
+                0x00d354a0        0x9 obj/LBRCE.o
+ .rodata._.str.291
+                0x00d354a9       0x13 obj/LBRCE.o
+ .rodata._.str.292
+                0x00d354bc        0xc obj/LBRCE.o
+ .rodata._.str.293
+                0x00d354c8       0x12 obj/LBRCE.o
+ .rodata._.str.294
+                0x00d354da        0xb obj/LBRCE.o
+ .rodata._.str.295
+                0x00d354e5       0x16 obj/LBRCE.o
+ .rodata._.str.296
+                0x00d354fb        0x6 obj/LBRCE.o
+ .rodata._.str.297
+                0x00d35501       0x1c obj/LBRCE.o
+ .rodata._.str.298
+                0x00d3551d        0xf obj/LBRCE.o
+ .rodata._.str.299
+                0x00d3552c       0x16 obj/LBRCE.o
+ .rodata._.str.300
+                0x00d35542       0x10 obj/LBRCE.o
+ .rodata._.str.301
+                0x00d35552       0x16 obj/LBRCE.o
+ .rodata._.str.302
+                0x00d35568        0xe obj/LBRCE.o
+ .rodata._.str.303
+                0x00d35576       0x10 obj/LBRCE.o
+ .rodata._.str.304
+                0x00d35586       0x10 obj/LBRCE.o
+ .rodata._.str.305
+                0x00d35596       0x17 obj/LBRCE.o
+ .rodata._.str.306
+                0x00d355ad        0xe obj/LBRCE.o
+ .rodata._.str.307
+                0x00d355bb       0x15 obj/LBRCE.o
+ .rodata._.str.308
+                0x00d355d0        0x9 obj/LBRCE.o
+ .rodata._.str.309
+                0x00d355d9       0x15 obj/LBRCE.o
+ .rodata._.str.310
+                0x00d355ee       0x15 obj/LBRCE.o
+ .rodata._.str.311
+                0x00d35603        0xd obj/LBRCE.o
+ .rodata._.str.312
+                0x00d35610       0x12 obj/LBRCE.o
+ .rodata._.str.313
+                0x00d35622        0xa obj/LBRCE.o
+ .rodata._.str.314
+                0x00d3562c       0x15 obj/LBRCE.o
+ .rodata._.str.315
+                0x00d35641       0x10 obj/LBRCE.o
+ .rodata._.str.316
+                0x00d35651       0x16 obj/LBRCE.o
+ .rodata._.str.318
+                0x00d35667       0x17 obj/LBRCE.o
+ .rodata._.str.319
+                0x00d3567e        0xe obj/LBRCE.o
+ .rodata._.str.320
+                0x00d3568c        0xf obj/LBRCE.o
+ .rodata._.str.321
+                0x00d3569b        0xc obj/LBRCE.o
+ .rodata._.str.322
+                0x00d356a7       0x14 obj/LBRCE.o
+ .rodata._.str.323
+                0x00d356bb        0x9 obj/LBRCE.o
+ .rodata._.str.324
+                0x00d356c4       0x15 obj/LBRCE.o
+ .rodata._.str.325
+                0x00d356d9        0xc obj/LBRCE.o
+ .rodata._.str.326
+                0x00d356e5       0x13 obj/LBRCE.o
+ .rodata._.str.327
+                0x00d356f8        0xc obj/LBRCE.o
+ .rodata._.str.328
+                0x00d35704       0x18 obj/LBRCE.o
+ .rodata._.str.329
+                0x00d3571c        0x9 obj/LBRCE.o
+ .rodata._.str.330
+                0x00d35725       0x15 obj/LBRCE.o
+ .rodata._.str.331
+                0x00d3573a        0xd obj/LBRCE.o
+ .rodata._.str.332
+                0x00d35747       0x15 obj/LBRCE.o
+ .rodata._.str.333
+                0x00d3575c        0xe obj/LBRCE.o
+ .rodata._.str.334
+                0x00d3576a       0x11 obj/LBRCE.o
+ .rodata._.str.335
+                0x00d3577b        0xd obj/LBRCE.o
+ .rodata._.str.336
+                0x00d35788       0x18 obj/LBRCE.o
+ .rodata._.str.337
+                0x00d357a0        0xf obj/LBRCE.o
+ .rodata._.str.338
+                0x00d357af       0x13 obj/LBRCE.o
+ .rodata._.str.339
+                0x00d357c2        0xe obj/LBRCE.o
+ .rodata._.str.340
+                0x00d357d0       0x1a obj/LBRCE.o
+ .rodata._.str.341
+                0x00d357ea       0x10 obj/LBRCE.o
+ .rodata._.str.342
+                0x00d357fa       0x15 obj/LBRCE.o
+ .rodata._.str.343
+                0x00d3580f        0xc obj/LBRCE.o
+ .rodata._.str.344
+                0x00d3581b       0x16 obj/LBRCE.o
+ .rodata._.str.345
+                0x00d35831       0x17 obj/LBRCE.o
+ .rodata._.str.346
+                0x00d35848       0x10 obj/LBRCE.o
+ .rodata._.str.347
+                0x00d35858       0x1e obj/LBRCE.o
+ .rodata._.str.348
+                0x00d35876        0xa obj/LBRCE.o
+ .rodata._.str.349
+                0x00d35880       0x11 obj/LBRCE.o
+ .rodata._.str.350
+                0x00d35891        0x7 obj/LBRCE.o
+ .rodata._.str.351
+                0x00d35898       0x10 obj/LBRCE.o
+ .rodata._.str.352
+                0x00d358a8        0x9 obj/LBRCE.o
+ .rodata._.str.353
+                0x00d358b1        0xc obj/LBRCE.o
+ .rodata._.str.354
+                0x00d358bd        0x9 obj/LBRCE.o
+ .rodata._.str.355
+                0x00d358c6        0xc obj/LBRCE.o
+ .rodata._.str.356
+                0x00d358d2        0x7 obj/LBRCE.o
+ .rodata._.str.357
+                0x00d358d9        0xd obj/LBRCE.o
+ .rodata._.str.358
+                0x00d358e6        0xb obj/LBRCE.o
+ .rodata._.str.359
+                0x00d358f1       0x10 obj/LBRCE.o
+ .rodata._.str.360
+                0x00d35901        0x6 obj/LBRCE.o
+ .rodata._.str.361
+                0x00d35907       0x11 obj/LBRCE.o
+ .rodata._.str.362
+                0x00d35918        0x7 obj/LBRCE.o
+ .rodata._.str.363
+                0x00d3591f        0xf obj/LBRCE.o
+ .rodata._.str.364
+                0x00d3592e        0x5 obj/LBRCE.o
+ .rodata._.str.365
+                0x00d35933        0xe obj/LBRCE.o
+ .rodata._.str.366
+                0x00d35941        0x5 obj/LBRCE.o
+ .rodata._.str.367
+                0x00d35946       0x10 obj/LBRCE.o
+ .rodata._.str.368
+                0x00d35956        0x7 obj/LBRCE.o
+ .rodata._.str.369
+                0x00d3595d        0xf obj/LBRCE.o
+ .rodata._.str.370
+                0x00d3596c        0x6 obj/LBRCE.o
+ .rodata._.str.371
+                0x00d35972       0x10 obj/LBRCE.o
+ .rodata._.str.372
+                0x00d35982        0x7 obj/LBRCE.o
+ .rodata._.str.373
+                0x00d35989        0xe obj/LBRCE.o
+ .rodata._.str.374
+                0x00d35997        0x9 obj/LBRCE.o
+ .rodata._.str.375
+                0x00d359a0        0xd obj/LBRCE.o
+ .rodata._.str.376
+                0x00d359ad        0x8 obj/LBRCE.o
+ .rodata._.str.377
+                0x00d359b5        0xc obj/LBRCE.o
+ .rodata._.str.378
+                0x00d359c1        0x7 obj/LBRCE.o
+ .rodata._.str.379
+                0x00d359c8       0x10 obj/LBRCE.o
+ .rodata._.str.380
+                0x00d359d8       0x15 obj/LBRCE.o
+ .rodata._.str.381
+                0x00d359ed       0x23 obj/LBRCE.o
+ .rodata._.str.382
+                0x00d35a10       0x10 obj/LBRCE.o
+ .rodata._.str.383
+                0x00d35a20       0x1f obj/LBRCE.o
+ .rodata._.str.384
+                0x00d35a3f        0x8 obj/LBRCE.o
+ .rodata._.str.385
+                0x00d35a47       0x1d obj/LBRCE.o
+ .rodata._.str.386
+                0x00d35a64        0xc obj/LBRCE.o
+ .rodata._.str.387
+                0x00d35a70       0x1b obj/LBRCE.o
+ .rodata._.str.388
+                0x00d35a8b        0xe obj/LBRCE.o
+ .rodata._.str.389
+                0x00d35a99       0x14 obj/LBRCE.o
+ .rodata._.str.390
+                0x00d35aad        0xc obj/LBRCE.o
+ .rodata._.str.391
+                0x00d35ab9       0x1f obj/LBRCE.o
+ .rodata._.str.392
+                0x00d35ad8        0xb obj/LBRCE.o
+ .rodata._.str.393
+                0x00d35ae3        0xa obj/LBRCE.o
+ .rodata._.str.394
+                0x00d35aed        0xe obj/LBRCE.o
+ .rodata._.str.395
+                0x00d35afb        0xb obj/LBRCE.o
+ .rodata._.str.396
+                0x00d35b06        0xc obj/LBRCE.o
+ .rodata._.str.397
+                0x00d35b12        0xa obj/LBRCE.o
+ .rodata._.str.398
+                0x00d35b1c        0xb obj/LBRCE.o
+ .rodata._.str.399
+                0x00d35b27        0xb obj/LBRCE.o
+ .rodata._.str.400
+                0x00d35b32        0x7 obj/LBRCE.o
+ .rodata._.str.401
+                0x00d35b39        0xe obj/LBRCE.o
+ .rodata._.str.402
+                0x00d35b47        0xc obj/LBRCE.o
+ .rodata._.str.403
+                0x00d35b53        0x8 obj/LBRCE.o
+ .rodata._.str.404
+                0x00d35b5b        0xd obj/LBRCE.o
+ .rodata._.str.405
+                0x00d35b68        0xd obj/LBRCE.o
+ .rodata._.str.406
+                0x00d35b75        0xf obj/LBRCE.o
+ .rodata._.str.407
+                0x00d35b84        0xc obj/LBRCE.o
+ .rodata._.str.408
+                0x00d35b90        0x8 obj/LBRCE.o
+ .rodata._.str.409
+                0x00d35b98        0xb obj/LBRCE.o
+ .rodata._.str.410
+                0x00d35ba3        0x8 obj/LBRCE.o
+ .rodata._.str.411
+                0x00d35bab        0xc obj/LBRCE.o
+ .rodata._.str.412
+                0x00d35bb7        0x9 obj/LBRCE.o
+ .rodata._.str.413
+                0x00d35bc0        0x9 obj/LBRCE.o
+ .rodata._.str.414
+                0x00d35bc9        0xb obj/LBRCE.o
+ .rodata._.str.415
+                0x00d35bd4        0xd obj/LBRCE.o
+ .rodata._.str.416
+                0x00d35be1        0xf obj/LBRCE.o
+ .rodata._.str.417
+                0x00d35bf0        0x7 obj/LBRCE.o
+ .rodata._.str.418
+                0x00d35bf7        0xd obj/LBRCE.o
+ .rodata._.str.419
+                0x00d35c04        0xc obj/LBRCE.o
+ .rodata._.str.420
+                0x00d35c10        0xc obj/LBRCE.o
+ .rodata._.str.421
+                0x00d35c1c        0x7 obj/LBRCE.o
+ .rodata._.str.422
+                0x00d35c23        0xc obj/LBRCE.o
+ .rodata._.str.423
+                0x00d35c2f       0x1d obj/LBRCE.o
+ .rodata._.str.1.424
+                0x00d35c4c       0x1b obj/LBRCE.o
+ .rodata._.str.2.425
+                0x00d35c67       0x22 obj/LBRCE.o
+ .rodata._.str.3.426
+                0x00d35c89       0x21 obj/LBRCE.o
+ .rodata._.str.4.427
+                0x00d35caa       0x21 obj/LBRCE.o
+ .rodata._.str.5.428
+                0x00d35ccb       0x21 obj/LBRCE.o
+ .rodata.__ZL17SAVE_PRIMARY_NAME
+                0x00d35cec        0x8 obj/LBRCE.o
+ .rodata.__ZL16SAVE_BACKUP_NAME
+                0x00d35cf4        0x7 obj/LBRCE.o
+ .rodata.__ZL14SAVE_TEMP_NAME
+                0x00d35cfb        0x7 obj/LBRCE.o
+ .rodata.__ZZN12_GLOBAL__N_110date_validEhhtE14DAYS_PER_MONTH
+                0x00d35d02        0xc obj/LBRCE.o
+ .rodata.__ZZN12_GLOBAL__N_120date_time_to_secondsEhhthhhE17DAYS_BEFORE_MONTH
+                0x00d35d0e       0x18 obj/LBRCE.o
+ .rodata._.str.436
+                0x00d35d26        0x2 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_110SAVE_MAGICE
+                0x00d35d28        0x4 obj/LBRCE.o
+ .rodata._.str.1.433
+                0x00d35d2c        0x2 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_112ALCHEMY_DEFSE
+                0x00d35d2e       0x38 obj/LBRCE.o
+ .rodata.__ZZ21systems_advance_towerR9GameStateE10GEM_LEAVES
+                0x00d35d66        0x7 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_113TRADE_OUTPUTSE
+                0x00d35d6d        0x8 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_112TRADE_INPUTSE
+                0x00d35d75        0xd obj/LBRCE.o
+ .rodata._.str.451
+                0x00d35d82       0x1d obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_112MENU_ENTRIESE
+                0x00d35d9f       0x44 obj/LBRCE.o
+ .rodata._.str.1.452
+                0x00d35de3        0xe obj/LBRCE.o
+ .rodata._.str.2.453
+                0x00d35df1       0x15 obj/LBRCE.o
+ .rodata._.str.3.454
+                0x00d35e06        0xe obj/LBRCE.o
+ .rodata._.str.4.455
+                0x00d35e14       0x1d obj/LBRCE.o
+ .rodata._.str.5.456
+                0x00d35e31       0x12 obj/LBRCE.o
+ .rodata._.str.6.457
+                0x00d35e43       0x13 obj/LBRCE.o
+ .rodata._.str.7.458
+                0x00d35e56       0x1e obj/LBRCE.o
+ .rodata._.str.8.459
+                0x00d35e74       0x1b obj/LBRCE.o
+ .rodata._.str.9.460
+                0x00d35e8f       0x24 obj/LBRCE.o
+ .rodata._.str.10.461
+                0x00d35eb3       0x20 obj/LBRCE.o
+ .rodata._.str.11.462
+                0x00d35ed3       0x18 obj/LBRCE.o
+ .rodata._.str.12.463
+                0x00d35eeb       0x24 obj/LBRCE.o
+ .rodata._.str.13.464
+                0x00d35f0f       0x14 obj/LBRCE.o
+ .rodata._.str.14.465
+                0x00d35f23        0xe obj/LBRCE.o
+ .rodata._.str.15.466
+                0x00d35f31        0xf obj/LBRCE.o
+ .rodata._.str.16.467
+                0x00d35f40        0xf obj/LBRCE.o
+ .rodata._.str.17.468
+                0x00d35f4f       0x1b obj/LBRCE.o
+ .rodata._.str.18.469
+                0x00d35f6a       0x14 obj/LBRCE.o
+ .rodata._.str.19.470
+                0x00d35f7e       0x12 obj/LBRCE.o
+ .rodata._.str.20.471
+                0x00d35f90        0xf obj/LBRCE.o
+ .rodata._.str.21.472
+                0x00d35f9f       0x13 obj/LBRCE.o
+ .rodata._.str.22.473
+                0x00d35fb2       0x2c obj/LBRCE.o
+ .rodata._.str.23.474
+                0x00d35fde       0x14 obj/LBRCE.o
+ .rodata._.str.24.475
+                0x00d35ff2       0x11 obj/LBRCE.o
+ .rodata._.str.25.476
+                0x00d36003       0x12 obj/LBRCE.o
+ .rodata._.str.26.477
+                0x00d36015       0x17 obj/LBRCE.o
+ .rodata._.str.27.478
+                0x00d3602c       0x10 obj/LBRCE.o
+ .rodata._.str.28.479
+                0x00d3603c       0x10 obj/LBRCE.o
+ .rodata._.str.29.520
+                0x00d3604c       0x1d obj/LBRCE.o
+ .rodata._.str.30.534
+                0x00d36069       0x1e obj/LBRCE.o
+ .rodata._.str.31.480
+                0x00d36087       0x12 obj/LBRCE.o
+ .rodata._.str.32.481
+                0x00d36099        0x6 obj/LBRCE.o
+ .rodata._.str.33.482
+                0x00d3609f        0x6 obj/LBRCE.o
+ .rodata._.str.34.483
+                0x00d360a5        0x6 obj/LBRCE.o
+ .rodata._.str.35.484
+                0x00d360ab       0x10 obj/LBRCE.o
+ .rodata._.str.36.485
+                0x00d360bb        0xb obj/LBRCE.o
+ .rodata._.str.37.486
+                0x00d360c6        0xb obj/LBRCE.o
+ .rodata._.str.38.487
+                0x00d360d1        0x5 obj/LBRCE.o
+ .rodata._.str.39.488
+                0x00d360d6       0x15 obj/LBRCE.o
+ .rodata._.str.40.489
+                0x00d360eb        0x8 obj/LBRCE.o
+ .rodata._.str.41.490
+                0x00d360f3        0xb obj/LBRCE.o
+ .rodata._.str.42.491
+                0x00d360fe        0xd obj/LBRCE.o
+ .rodata._.str.43.492
+                0x00d3610b        0xb obj/LBRCE.o
+ .rodata._.str.44.493
+                0x00d36116       0x10 obj/LBRCE.o
+ .rodata._.str.45.494
+                0x00d36126        0x9 obj/LBRCE.o
+ .rodata._.str.46.495
+                0x00d3612f        0x8 obj/LBRCE.o
+ .rodata._.str.47.496
+                0x00d36137       0x10 obj/LBRCE.o
+ .rodata._.str.48.501
+                0x00d36147        0x4 obj/LBRCE.o
+ .rodata._.str.49.502
+                0x00d3614b        0xe obj/LBRCE.o
+ .rodata._.str.50.503
+                0x00d36159        0xc obj/LBRCE.o
+ .rodata._.str.51.504
+                0x00d36165       0x1a obj/LBRCE.o
+ .rodata._.str.52.505
+                0x00d3617f        0x2 obj/LBRCE.o
+ .rodata._.str.53.506
+                0x00d36181       0x1c obj/LBRCE.o
+ .rodata._.str.54.507
+                0x00d3619d        0xd obj/LBRCE.o
+ .rodata._.str.55.508
+                0x00d361aa        0xa obj/LBRCE.o
+ .rodata._RESOURCE_DEFS
+                0x00d361b4      0x250 obj/LBRCE.o
+                0x00d361b4                _RESOURCE_DEFS
+ .rodata._.str.56.509
+                0x00d36404       0x15 obj/LBRCE.o
+ .rodata._.str.57.510
+                0x00d36419        0xc obj/LBRCE.o
+ .rodata._.str.58.511
+                0x00d36425        0xd obj/LBRCE.o
+ .rodata._.str.59.514
+                0x00d36432        0x3 obj/LBRCE.o
+ .rodata._.str.60.512
+                0x00d36435        0x9 obj/LBRCE.o
+ .rodata._.str.61.513
+                0x00d3643e        0x6 obj/LBRCE.o
+ .rodata._.str.62.515
+                0x00d36444        0x7 obj/LBRCE.o
+ .rodata._.str.63.516
+                0x00d3644b       0x13 obj/LBRCE.o
+ .rodata._.str.64.517
+                0x00d3645e        0x5 obj/LBRCE.o
+ .rodata._.str.65.518
+                0x00d36463        0x5 obj/LBRCE.o
+ .rodata._.str.66.519
+                0x00d36468       0x17 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_110SHOP_NAMESE
+                0x00d3647f       0x1b obj/LBRCE.o
+ .rodata._.str.68.643
+                0x00d3649a        0x7 obj/LBRCE.o
+ .rodata._.str.69.644
+                0x00d364a1       0x1e obj/LBRCE.o
+ .rodata._.str.70.645
+                0x00d364bf        0xa obj/LBRCE.o
+ .rodata._.str.71.646
+                0x00d364c9        0xa obj/LBRCE.o
+ .rodata._.str.72.647
+                0x00d364d3        0xa obj/LBRCE.o
+ .rodata._.str.73.648
+                0x00d364dd        0x9 obj/LBRCE.o
+ .rodata._.str.74.649
+                0x00d364e6        0x9 obj/LBRCE.o
+ .rodata._.str.75.650
+                0x00d364ef        0x9 obj/LBRCE.o
+ .rodata._.str.76.651
+                0x00d364f8        0xc obj/LBRCE.o
+ .rodata._.str.77.652
+                0x00d36504        0xc obj/LBRCE.o
+ .rodata._.str.78.521
+                0x00d36510       0x16 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_111RESET_NAMESE
+                0x00d36526        0xf obj/LBRCE.o
+ .rodata._.str.79.522
+                0x00d36535       0x26 obj/LBRCE.o
+ .rodata._.str.80.523
+                0x00d3655b       0x25 obj/LBRCE.o
+ .rodata._.str.81.524
+                0x00d36580       0x1b obj/LBRCE.o
+ .rodata._.str.82.638
+                0x00d3659b        0x9 obj/LBRCE.o
+ .rodata._.str.83.639
+                0x00d365a4       0x10 obj/LBRCE.o
+ .rodata._.str.84.640
+                0x00d365b4       0x11 obj/LBRCE.o
+ .rodata._.str.85.641
+                0x00d365c5       0x12 obj/LBRCE.o
+ .rodata._.str.86.642
+                0x00d365d7        0xb obj/LBRCE.o
+ .rodata._.str.87.525
+                0x00d365e2       0x13 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_119ULC_SACRIFICE_NAMESE
+                0x00d365f5       0x1e obj/LBRCE.o
+ .rodata._.str.88.527
+                0x00d36613        0xa obj/LBRCE.o
+ .rodata._.str.89.526
+                0x00d3661d        0x5 obj/LBRCE.o
+ .rodata._.str.90.528
+                0x00d36622       0x12 obj/LBRCE.o
+ .rodata._.str.91.529
+                0x00d36634       0x17 obj/LBRCE.o
+ .rodata._.str.92.530
+                0x00d3664b        0xe obj/LBRCE.o
+ .rodata._.str.93.628
+                0x00d36659        0xd obj/LBRCE.o
+ .rodata._.str.94.629
+                0x00d36666        0x6 obj/LBRCE.o
+ .rodata._.str.95.630
+                0x00d3666c        0xf obj/LBRCE.o
+ .rodata._.str.96.631
+                0x00d3667b        0x5 obj/LBRCE.o
+ .rodata._.str.97.632
+                0x00d36680        0xa obj/LBRCE.o
+ .rodata._.str.98.633
+                0x00d3668a        0xe obj/LBRCE.o
+ .rodata._.str.99.634
+                0x00d36698        0xa obj/LBRCE.o
+ .rodata._.str.100.635
+                0x00d366a2        0x6 obj/LBRCE.o
+ .rodata._.str.101.636
+                0x00d366a8        0xc obj/LBRCE.o
+ .rodata._.str.102.637
+                0x00d366b4        0x7 obj/LBRCE.o
+ .rodata._.str.103.531
+                0x00d366bb       0x14 obj/LBRCE.o
+ .rodata._SYSTEM_NAMES
+                0x00d366cf       0x9c obj/LBRCE.o
+                0x00d366cf                _SYSTEM_NAMES
+ .rodata._.str.104.532
+                0x00d3676b        0x6 obj/LBRCE.o
+ .rodata._.str.105.533
+                0x00d36771       0x19 obj/LBRCE.o
+ .rodata._.str.106.535
+                0x00d3678a        0x7 obj/LBRCE.o
+ .rodata._.str.107.536
+                0x00d36791       0x16 obj/LBRCE.o
+ .rodata._.str.108.537
+                0x00d367a7       0x18 obj/LBRCE.o
+ .rodata._.str.109.538
+                0x00d367bf        0x3 obj/LBRCE.o
+ .rodata._.str.110.539
+                0x00d367c2       0x15 obj/LBRCE.o
+ .rodata._.str.111.542
+                0x00d367d7        0xa obj/LBRCE.o
+ .rodata._.str.112.540
+                0x00d367e1        0x3 obj/LBRCE.o
+ .rodata._.str.113.541
+                0x00d367e4        0x1 obj/LBRCE.o
+ .rodata._.str.114.543
+                0x00d367e5       0x19 obj/LBRCE.o
+ .rodata._.str.115.544
+                0x00d367fe        0xe obj/LBRCE.o
+ .rodata._.str.117.545
+                0x00d3680c        0x9 obj/LBRCE.o
+ .rodata._.str.118.546
+                0x00d36815        0x5 obj/LBRCE.o
+ .rodata._.str.119.547
+                0x00d3681a        0x6 obj/LBRCE.o
+ .rodata._.str.120.548
+                0x00d36820       0x24 obj/LBRCE.o
+ .rodata._.str.121.549
+                0x00d36844       0x17 obj/LBRCE.o
+ .rodata._.str.123.550
+                0x00d3685b        0x9 obj/LBRCE.o
+ .rodata._.str.124.551
+                0x00d36864        0x9 obj/LBRCE.o
+ *fill*         0x00d3686d        0x1 
+ .rodata._CHALLENGE_DEFS
+                0x00d3686e       0x3c obj/LBRCE.o
+                0x00d3686e                _CHALLENGE_DEFS
+ .rodata._.str.125.552
+                0x00d368aa       0x26 obj/LBRCE.o
+ .rodata._.str.126.553
+                0x00d368d0        0xd obj/LBRCE.o
+ .rodata._.str.127.554
+                0x00d368dd        0xd obj/LBRCE.o
+ .rodata._.str.128.555
+                0x00d368ea       0x17 obj/LBRCE.o
+ *fill*         0x00d36901        0x1 
+ .rodata._ACHIEVEMENT_DEFS
+                0x00d36902      0x140 obj/LBRCE.o
+                0x00d36902                _ACHIEVEMENT_DEFS
+ .rodata._.str.129.556
+                0x00d36a42        0x5 obj/LBRCE.o
+ .rodata._.str.130.557
+                0x00d36a47       0x1f obj/LBRCE.o
+ .rodata._.str.131.558
+                0x00d36a66       0x1b obj/LBRCE.o
+ .rodata._.str.132.559
+                0x00d36a81       0x10 obj/LBRCE.o
+ .rodata._.str.133.560
+                0x00d36a91       0x12 obj/LBRCE.o
+ .rodata._.str.134.561
+                0x00d36aa3       0x1d obj/LBRCE.o
+ .rodata._.str.135.562
+                0x00d36ac0       0x1c obj/LBRCE.o
+ .rodata._.str.136.563
+                0x00d36adc       0x18 obj/LBRCE.o
+ .rodata._.str.137.564
+                0x00d36af4       0x21 obj/LBRCE.o
+ .rodata._.str.138.565
+                0x00d36b15       0x10 obj/LBRCE.o
+ .rodata._.str.139.568
+                0x00d36b25       0x16 obj/LBRCE.o
+ .rodata._.str.140.567
+                0x00d36b3b        0x3 obj/LBRCE.o
+ .rodata._.str.141.566
+                0x00d36b3e        0x4 obj/LBRCE.o
+ .rodata._.str.142.569
+                0x00d36b42        0xf obj/LBRCE.o
+ .rodata._.str.143.570
+                0x00d36b51       0x17 obj/LBRCE.o
+ .rodata._.str.144.571
+                0x00d36b68        0x9 obj/LBRCE.o
+ .rodata._.str.145.572
+                0x00d36b71        0x6 obj/LBRCE.o
+ .rodata._.str.146.573
+                0x00d36b77        0xe obj/LBRCE.o
+ .rodata._.str.147.574
+                0x00d36b85        0x5 obj/LBRCE.o
+ .rodata._.str.148.575
+                0x00d36b8a       0x19 obj/LBRCE.o
+ .rodata._.str.149.619
+                0x00d36ba3       0x1e obj/LBRCE.o
+ .rodata._.str.150.620
+                0x00d36bc1       0x18 obj/LBRCE.o
+ .rodata._.str.151.621
+                0x00d36bd9       0x1a obj/LBRCE.o
+ .rodata._.str.152.622
+                0x00d36bf3       0x19 obj/LBRCE.o
+ .rodata._.str.153.623
+                0x00d36c0c       0x21 obj/LBRCE.o
+ .rodata._.str.154.624
+                0x00d36c2d       0x21 obj/LBRCE.o
+ .rodata._.str.155.625
+                0x00d36c4e       0x27 obj/LBRCE.o
+ .rodata._.str.156.626
+                0x00d36c75       0x24 obj/LBRCE.o
+ .rodata._.str.157.627
+                0x00d36c99       0x23 obj/LBRCE.o
+ .rodata.___const._ZN12_GLOBAL__N_113draw_controlsERK9GameState.lines
+                0x00d36cbc       0x1b obj/LBRCE.o
+ .rodata._.str.158.576
+                0x00d36cd7       0x1e obj/LBRCE.o
+ .rodata._.str.159.577
+                0x00d36cf5       0x14 obj/LBRCE.o
+ .rodata._.str.160.578
+                0x00d36d09       0x22 obj/LBRCE.o
+ .rodata._.str.161.579
+                0x00d36d2b       0x2a obj/LBRCE.o
+ .rodata._.str.162.580
+                0x00d36d55       0x23 obj/LBRCE.o
+ .rodata._.str.163.581
+                0x00d36d78       0x29 obj/LBRCE.o
+ .rodata._.str.164.582
+                0x00d36da1       0x26 obj/LBRCE.o
+ .rodata._.str.165.583
+                0x00d36dc7       0x28 obj/LBRCE.o
+ .rodata._.str.166.584
+                0x00d36def       0x2a obj/LBRCE.o
+ .rodata._.str.167.585
+                0x00d36e19       0x18 obj/LBRCE.o
+ .rodata.__ZN12_GLOBAL__N_114RESET_PREVIEWSE
+                0x00d36e31       0x3c obj/LBRCE.o
+ .rodata._.str.168.586
+                0x00d36e6d        0xe obj/LBRCE.o
+ .rodata._.str.169.587
+                0x00d36e7b        0xb obj/LBRCE.o
+ .rodata._.str.170.588
+                0x00d36e86        0xb obj/LBRCE.o
+ .rodata._.str.171.589
+                0x00d36e91        0xa obj/LBRCE.o
+ .rodata._.str.172.590
+                0x00d36e9b        0xd obj/LBRCE.o
+ .rodata._.str.173.600
+                0x00d36ea8       0x22 obj/LBRCE.o
+ .rodata._.str.174.601
+                0x00d36eca       0x21 obj/LBRCE.o
+ .rodata._.str.175.602
+                0x00d36eeb       0x19 obj/LBRCE.o
+ .rodata._.str.176.603
+                0x00d36f04       0x23 obj/LBRCE.o
+ .rodata._.str.177.604
+                0x00d36f27       0x21 obj/LBRCE.o
+ .rodata._.str.178.605
+                0x00d36f48       0x1c obj/LBRCE.o
+ .rodata._.str.179.606
+                0x00d36f64       0x22 obj/LBRCE.o
+ .rodata._.str.180.607
+                0x00d36f86       0x20 obj/LBRCE.o
+ .rodata._.str.181.608
+                0x00d36fa6       0x1e obj/LBRCE.o
+ .rodata._.str.182.609
+                0x00d36fc4       0x22 obj/LBRCE.o
+ .rodata._.str.183.610
+                0x00d36fe6       0x23 obj/LBRCE.o
+ .rodata._.str.184.611
+                0x00d37009       0x20 obj/LBRCE.o
+ .rodata._.str.185.612
+                0x00d37029       0x23 obj/LBRCE.o
+ .rodata._.str.186.613
+                0x00d3704c       0x22 obj/LBRCE.o
+ .rodata._.str.187.614
+                0x00d3706e       0x1d obj/LBRCE.o
+ .rodata._.str.188.615
+                0x00d3708b       0x1d obj/LBRCE.o
+ .rodata._.str.189.616
+                0x00d370a8       0x18 obj/LBRCE.o
+ .rodata._.str.190.617
+                0x00d370c0       0x20 obj/LBRCE.o
+ .rodata._.str.191.618
+                0x00d370e0       0x22 obj/LBRCE.o
+ .rodata._.str.192.599
+                0x00d37102       0x1f obj/LBRCE.o
+ .rodata._.str.193.592
+                0x00d37121       0x24 obj/LBRCE.o
+ .rodata._.str.194.591
+                0x00d37145       0x18 obj/LBRCE.o
+ .rodata._.str.195.594
+                0x00d3715d       0x1d obj/LBRCE.o
+ .rodata._.str.196.593
+                0x00d3717a       0x1c obj/LBRCE.o
+ .rodata._.str.197.597
+                0x00d37196       0x19 obj/LBRCE.o
+ .rodata._.str.198.596
+                0x00d371af        0x5 obj/LBRCE.o
+ .rodata._.str.199.595
+                0x00d371b4        0x8 obj/LBRCE.o
+ .rodata._.str.200.598
+                0x00d371bc       0x22 obj/LBRCE.o
+ .rodata._AREA_DEFS
+                0x00d371de      0x444 obj/LBRCE.o
+                0x00d371de                _AREA_DEFS
+ .rodata._TOOL_DEFS
+                0x00d37622      0x100 obj/LBRCE.o
+                0x00d37622                _TOOL_DEFS
+ .rodata._UPGRADE_DEFS
+                0x00d37722      0x280 obj/LBRCE.o
+                0x00d37722                _UPGRADE_DEFS
+ .rodata._PET_DEFS
+                0x00d379a2      0x120 obj/LBRCE.o
+                0x00d379a2                _PET_DEFS
+ .rodata._npf_vpprintf
+                0x00d37ac2      0x102 obj/LBRCE.o
+ .rodata.libload
+                0x00d37bc4       0x22 obj/crt0.o
+
+.init_array     0x00d37be6        0x0
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(.preinit_array)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*))
+ *(.init_array)
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x00d37be6        0x0
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x00d37be6                        ___data_low = .
+
+.data           0x00d37be6        0x0
+ *(.data .data.* .gnu.linkonce.d.*)
+ *(.data1)
+                0x00d37be6                        ___runprgm_reloc_start = .
+ *(.runprgm.reloc)
+                0x00d37be6                        ___runprgm_reloc_end = .
+                0x00d37be6                        ___data_high = .
+                0x00000000                        ___data_len = (___data_high - ___data_low)
+                0x00d052c6                        . = BSSHEAP_LOW
+                0x00d052c6                        ___bss_low = .
+
+.bss            0x00d052c6     0x4f71
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss.__ZZ4mainE5state
+                0x00d052c6      0x968 obj/LBRCE.o
+ .bss.__ZZ4mainE5field
+                0x00d05c2e      0x36a obj/LBRCE.o
+ .bss.__ZZ4mainE5input
+                0x00d05f98       0x10 obj/LBRCE.o
+ .bss.__ZZ4mainE2ui
+                0x00d05fa8       0x37 obj/LBRCE.o
+ .bss.__ZN12_GLOBAL__N_115graphics_activeE
+                0x00d05fdf        0x1 obj/LBRCE.o
+ .bss.__ZN12_GLOBAL__N_117rtc_floor_scratchE
+                0x00d05fe0        0x4 obj/LBRCE.o
+ .bss.__ZN12_GLOBAL__N_117candidate_scratchE
+                0x00d05fe4     0x25c8 obj/LBRCE.o
+ .bss.__ZN12_GLOBAL__N_116prepared_scratchE
+                0x00d085ac      0x968 obj/LBRCE.o
+ .bss.__ZN12_GLOBAL__N_114record_scratchE
+                0x00d08f14      0x981 obj/LBRCE.o
+ *fill*         0x00d09895        0x1 
+ .bss.__ZN12_GLOBAL__N_116baseline_scratchE
+                0x00d09896      0x968 obj/LBRCE.o
+ .bss.__ZZN12_GLOBAL__N_118reset_current_ruleERK9GameStatehE4rule
+                0x00d0a1fe       0x30 obj/LBRCE.o
+ .bss._pc_cnt.0
+                0x00d0a22e        0x3 obj/LBRCE.o
+ .bss._pc_cnt.1
+                0x00d0a231        0x3 obj/LBRCE.o
+ .bss._pc_cnt.2
+                0x00d0a234        0x3 obj/LBRCE.o
+ *(COMMON)
+                0x00d0a237                        ___bss_high = .
+                0x00004f71                        ___bss_len = (___bss_high - ___bss_low)
+                0x00000001                        ASSERT ((. <= BSSHEAP_HIGH), Error: BSS exceed BSSHEAP_HIGH limit)
+                0x00d0a237                        ___heap_low = .
+                0x00d13fd8                        . = BSSHEAP_HIGH
+                0x00d13fd8                        ___heap_high = .
+
+.runprgm
+ *(.runprgm.reloc)
+
+.debug_info
+ *(.debug_info .debug_info.*)
+
+.debug_abbrev
+ *(.debug_abbrev .debug_abbrev.*)
+
+.debug_line
+ *(.debug_line .debug_line.*)
+
+.debug_line_str
+ *(.debug_line_str .debug_line_str.*)
+
+.debug_str
+ *(.debug_str .debug_str.*)
+
+.debug_str_offsets
+ *(.debug_str_offsets .debug_str_offsets.*)
+
+.debug_addr
+ *(.debug_addr .debug_addr.*)
+
+.debug_aranges
+ *(.debug_aranges .debug_aranges.*)
+
+.debug_ranges
+ *(.debug_ranges .debug_ranges.*)
+
+.debug_rnglists
+ *(.debug_rnglists .debug_rnglists.*)
+
+.debug_loc
+ *(.debug_loc .debug_loc.*)
+
+.debug_loclists
+ *(.debug_loclists .debug_loclists.*)
+
+.debug_frame
+ *(.debug_frame .debug_frame.*)
+
+.debug_macro
+ *(.debug_macro .debug_macro.*)
+
+.debug_macinfo
+ *(.debug_macinfo .debug_macinfo.*)
+
+.debug_names
+ *(.debug_names .debug_names.*)
+
+.debug_pubnames
+ *(.debug_pubnames .debug_pubnames.*)
+
+.debug_pubtypes
+ *(.debug_pubtypes .debug_pubtypes.*)
+
+.debug_types
+ *(.debug_types .debug_types.*)
+
+.debug_sup
+ *(.debug_sup .debug_sup.*)
+
+.debug_cu_index
+ *(.debug_cu_index .debug_cu_index.*)
+
+.debug_tu_index
+ *(.debug_tu_index .debug_tu_index.*)
+
+.gdb_index
+ *(.gdb_index)
+
+.debug_gdb_scripts
+ *(.debug_gdb_scripts)
+
+.debug_abbrev.dwo
+ *(.debug_abbrev.dwo .debug_abbrev.dwo.*)
+
+.debug_info.dwo
+ *(.debug_info.dwo .debug_info.dwo.*)
+
+.debug_line.dwo
+ *(.debug_line.dwo .debug_line.dwo.*)
+
+.debug_loclists.dwo
+ *(.debug_loclists.dwo .debug_loclists.dwo.*)
+
+.debug_macro.dwo
+ *(.debug_macro.dwo .debug_macro.dwo.*)
+
+.debug_rnglists.dwo
+ *(.debug_rnglists.dwo .debug_rnglists.dwo.*)
+
+.debug_str.dwo
+ *(.debug_str.dwo .debug_str.dwo.*)
+
+.debug_str_offsets.dwo
+ *(.debug_str_offsets.dwo .debug_str_offsets.dwo.*)
+
+.eh_frame
+ *(.eh_frame)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+                [!provide]                        PROVIDE (___runprgm_reloc_len = (___runprgm_reloc_end - ___runprgm_reloc_start))
+LOAD obj/LBRCE.o
+LOAD obj/crt0.o
+START GROUP
+LOAD C:/Users/FINNLA~1/Documents/Codex/2026-0~2/go/work/CEdev/CEdev/lib/libc/allocator_standard.a
+LOAD C:/Users/FINNLA~1/Documents/Codex/2026-0~2/go/work/CEdev/CEdev/lib/crt/libcrt.a
+LOAD C:/Users/FINNLA~1/Documents/Codex/2026-0~2/go/work/CEdev/CEdev/lib/ce/libce.a
+LOAD C:/Users/FINNLA~1/Documents/Codex/2026-0~2/go/work/CEdev/CEdev/lib/softfloat/libsoftfloat.a
+LOAD C:/Users/FINNLA~1/Documents/Codex/2026-0~2/go/work/CEdev/CEdev/lib/libc/libc_os.a
+LOAD C:/Users/FINNLA~1/Documents/Codex/2026-0~2/go/work/CEdev/CEdev/lib/libcxx/libcxx.a
+END GROUP
+OUTPUT(bin/LBRCE.obj elf32-z80)

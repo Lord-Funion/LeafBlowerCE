@@ -1,0 +1,66 @@
+LEAF BLOWER REVOLUTION CE 1.0.0 - FINAL BUILD VERIFICATION
+Date: 2026-08-04
+
+BUILD ENVIRONMENT
+  CE C/C++ Toolchain: 15.0
+  ez80-clang: 19.1.0, target ez80
+  GNU Make: 3.81
+  Flags: -Wall -Wextra -Werror -Oz -std=c++17, LTO, ZX7
+
+CLEAN BUILD
+  make clean: PASS
+  make -j2: PASS
+  Project compiler warnings: 0
+  Project compiler errors: 0
+  Toolchain notices: GNU-stack deprecation warnings from the bundled
+    atomic_load_increasing_32.o and crt0.o runtime objects only.
+
+PROGRAM ARTIFACT
+  Path: bin/LBRCE.8xp
+  Size: 50,226 bytes
+  TI transfer signature: PASS
+  Internal variable: LBRCE, program type 0x06, archived
+  Payload: 50,152 bytes
+  Data section: 50,169 bytes
+  TI checksum: PASS (0x0D50)
+  SHA-256 at build freeze:
+    d1dec310f419e823c9d4d39e061ac21c5ebd02a738b4343c145d41a3be6d5eb4
+
+MEMORY/LINK MAP
+  BSS: 19,075 bytes (0x4A83)
+  Project BSS ceiling: 51,200 bytes
+  Margin below ceiling: 32,125 bytes
+  Calculated heap window: 41,615 bytes
+  Stack-to-program gap: 26,790 bytes
+
+DYNAMIC RUNTIME AUDIT
+  Required loader/runtime AppVars: LibLoad, FILEIOC, GRAPHX, KEYPADC
+  Unexpected dynamic libraries: none
+  All four packaged upstream AppVars: valid TI transfer checksum
+
+HOST VERIFICATION
+  test_crc32_known_vector: PASS
+  test_divide_by_zero_saturates: PASS
+  test_integer_operations: PASS
+  test_binary_is_a_ti_transfer_file: PASS
+  test_bss_budget: PASS
+  test_save_recovery_guards_are_compiled: PASS
+  test_all_78_current_area_rows_are_present_in_order: PASS
+  test_definition_counts_match_enums: PASS
+  test_no_unfinished_markers_in_release_source: PASS
+  Result: 9 tests passed, 0 failed
+
+CALCULATOR-SIDE GUARD
+  runtime_self_test() is compiled into startup and validates arithmetic plus
+  generated content IDs, prices, requirements, counts, and limits before
+  GraphX starts.
+
+NOT EXECUTED IN THIS WORKSPACE
+  No physical TI-84 Plus CE was attached and no legally dumped calculator ROM
+  was available for CEmu. Cable transfer, real LCD output, sustained hardware
+  frame time, launcher/OS combinations, archive-GC prompts, and power-loss fault
+  injection remain the documented manual test matrix in docs/TESTING.md.
+
+NOTE
+  CEdev embeds a wall-clock build string in the .8xp. Package hashes are
+  generated after this frozen build and are authoritative in SHA256SUMS.txt.
