@@ -26,21 +26,21 @@ void update_repeat_state(const InputState &input) {
         const bool down = (input.current[ARROW_GROUP] & key) != 0;
         const bool was_down = (input.previous[ARROW_GROUP] & key) != 0;
 
-        if(!down) {
-            held_frames[index] = 0;
-            continue;
-        }
-        if(!was_down) {
+        if(!down || !was_down) {
             held_frames[index] = 0;
             continue;
         }
 
-        if(held_frames[index] < 255) held_frames[index]++;
-        const uint8_t held = held_frames[index];
-        if(held == INITIAL_REPEAT_DELAY ||
-           (held > INITIAL_REPEAT_DELAY &&
-            static_cast<uint8_t>(held - INITIAL_REPEAT_DELAY) % REPEAT_INTERVAL == 0)) {
+        if(held_frames[index] < INITIAL_REPEAT_DELAY) {
+            held_frames[index]++;
+            if(held_frames[index] == INITIAL_REPEAT_DELAY) repeat_pulse |= key;
+            continue;
+        }
+
+        held_frames[index]++;
+        if(held_frames[index] >= INITIAL_REPEAT_DELAY + REPEAT_INTERVAL) {
             repeat_pulse |= key;
+            held_frames[index] = INITIAL_REPEAT_DELAY;
         }
     }
 }
