@@ -8,8 +8,10 @@ constexpr uint8_t ARROW_GROUP = 7;
 constexpr uint8_t INITIAL_REPEAT_DELAY = 12;
 constexpr uint8_t REPEAT_INTERVAL = 3;
 constexpr uint8_t REPEATABLE_KEYS[] = {kb_Up, kb_Down, kb_Left, kb_Right};
+constexpr uint8_t REPEATABLE_KEY_COUNT =
+        static_cast<uint8_t>(sizeof(REPEATABLE_KEYS) / sizeof(REPEATABLE_KEYS[0]));
 
-uint8_t held_frames[sizeof(REPEATABLE_KEYS)] = {};
+uint8_t held_frames[REPEATABLE_KEY_COUNT] = {};
 uint8_t repeat_pulse = 0;
 
 void reset_repeat_state() {
@@ -19,7 +21,7 @@ void reset_repeat_state() {
 
 void update_repeat_state(const InputState &input) {
     repeat_pulse = 0;
-    for(uint8_t index = 0; index < sizeof(REPEATABLE_KEYS); index++) {
+    for(uint8_t index = 0; index < REPEATABLE_KEY_COUNT; index++) {
         const uint8_t key = REPEATABLE_KEYS[index];
         const bool down = (input.current[ARROW_GROUP] & key) != 0;
         const bool was_down = (input.previous[ARROW_GROUP] & key) != 0;
