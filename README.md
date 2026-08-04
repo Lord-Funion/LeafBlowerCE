@@ -22,8 +22,8 @@ Run `LBRCE` from the calculator's program menu. On OS versions that block direct
 
 | Context | Key | Action |
 | --- | --- | --- |
-| Leaf field | Arrow keys | Move and aim the blower |
-| Leaf field | Hold `2nd` | Blow leaves |
+| Leaf field | Arrow keys | Move the blower; movement direction does not aim airflow |
+| Leaf field | Automatic | Continuously push every leaf inside the circular radius directly away from the player |
 | Leaf field | `Enter` | Open the main menu |
 | Menus | Up / Down | Move visible focus |
 | Shops | Left / Right | Change shop category |
@@ -40,7 +40,7 @@ There is also a complete in-game Controls page.
 
 ## Progression
 
-Push ordinary leaves offscreen to collect them, buy field upgrades and tools, then Prestige for Coins. Coins open areas, printers, converters, and science flasks. Strange Flasks lead to Big Leaf Crunch; later combat floors lead to Mega and Ultra Leaf Crunch. Bismuth appears as a distinct minority leaf in the Mountain field. ULC includes a saved ten-family sacrifice planner: all ten are required the first time, while the ULC Shop's Less Sacrifices upgrade can preserve up to three families later. The System Hub exposes the calculator equivalents for trading, crafting, alchemy, artifacts, Tower, Pyramid, cards, Borbventures, dice, mines, fishing, banks, Soul Forge/Crypt, Quark Reactor, Leafton Pit, Shadow Crystal/Tree, Industrial Harbor, jobs, ships, events, daily rewards, and related systems.
+The blower runs continuously: every leaf inside its circular radius is pushed directly away from the player, independent of movement direction. Push ordinary leaves offscreen to collect them, buy field upgrades and tools, then Prestige for Coins. Coins open areas, printers, converters, and science flasks. Strange Flasks lead to Big Leaf Crunch; later combat floors lead to Mega and Ultra Leaf Crunch. Bismuth appears as a distinct minority leaf in the Mountain field. ULC includes a saved ten-family sacrifice planner: all ten are required the first time, while the ULC Shop's Less Sacrifices upgrade can preserve up to three families later. The System Hub exposes the calculator equivalents for trading, crafting, alchemy, artifacts, Tower, Pyramid, cards, Borbventures, dice, mines, fishing, banks, Soul Forge/Crypt, Quark Reactor, Leafton Pit, Shadow Crystal/Tree, Industrial Harbor, jobs, ships, events, daily rewards, and related systems.
 
 Water Leaves in Industrial Harbor are deliberately different: pushing them offscreen does not collect them. Push them into the visible `JOB` container, then use Harbor/Jobs actions from the System Hub.
 

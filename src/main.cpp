@@ -100,7 +100,7 @@ int main() {
             if(input_down(input, 7, kb_Right)) move_x++;
             if(input_down(input, 7, kb_Up)) move_y--;
             if(input_down(input, 7, kb_Down)) move_y++;
-            leaf_field_update(field, state, move_x, move_y, input_down(input, 1, kb_2nd));
+            leaf_field_update(field, state, move_x, move_y);
         }
 
         UiResult result = ui_handle_input(ui, state, field, input, now);

@@ -19,8 +19,6 @@ struct LeafField {
     LeafParticle leaves[MAX_LEAVES];
     int16_t blower_x;
     int16_t blower_y;
-    int8_t facing_x;
-    int8_t facing_y;
     uint8_t spawn_timer;
     uint16_t frame;
 };
@@ -28,4 +26,4 @@ struct LeafField {
 void leaf_field_init(LeafField &field, GameState &state);
 void leaf_field_change_area(LeafField &field, GameState &state);
 void leaf_field_update(LeafField &field, GameState &state,
-                       int8_t move_x, int8_t move_y, bool blowing);
+                       int8_t move_x, int8_t move_y);
