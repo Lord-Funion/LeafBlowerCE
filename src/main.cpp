@@ -37,10 +37,16 @@ int main() {
     static InputState input;
     static UiState ui;
 
-    if(runtime_self_test(state) != 0) {
+    const uint16_t self_test_failures = runtime_self_test(state);
+    if(self_test_failures != 0) {
+        char message[32];
+        std::snprintf(message, sizeof(message), "LBRCE self-test: %04X",
+                      static_cast<unsigned>(self_test_failures));
         os_ClrHome();
-        os_PutStrFull("LBRCE data self-test failed.");
-        delay(1800);
+        os_PutStrFull(message);
+        os_NewLine();
+        os_PutStrFull("Report this code.");
+        delay(2500);
         return 1;
     }
 

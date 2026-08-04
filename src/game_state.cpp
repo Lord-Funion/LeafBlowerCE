@@ -503,6 +503,8 @@ bool game_apply_reset(GameState &state, ResetTier tier) {
             state.resources[RES_COINS] = saved_coins;
             for(uint8_t i = 0; i < UPGRADE_COUNT; i++)
                 if(UPGRADE_DEFS[i].effect == EFFECT_PRINTER) state.upgrade_levels[i] = saved_printer;
+        } else {
+            state.resources[RES_COINS] = bn_zero();
         }
         game_add(state, RES_BLC, reward);
     } else if(tier == RESET_MLC) {
