@@ -1,32 +1,44 @@
-name: Apply radial blower source update
+name: Verify release
 
 on:
   push:
-    branches: ["agent/always-on-radial-blower-v2"]
-    paths: [".github/workflows/verify.yml"]
+    branches: [main, "agent/**"]
   pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply-update:
+  host-verification:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Check out branch
+      - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          ref: agent/always-on-radial-blower-v2
+          python-version: "3.11"
 
-      - name: Apply source, documentation, and tests
-        run: python tools/apply_radial_blower_patch.py
+      - name: Run release verification
+        run: python tests/verify_release.py
 
-      - name: Commit completed update
+      - name: Run focused regression tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Compile host gameplay tests
         run: |
-          git checkout -- .github/workflows/verify.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Make blower always-on and radial"
-          git push origin HEAD:agent/always-on-radial-blower-v2
+          COMMON="src/big_num.cpp src/content.cpp src/game_state.cpp src/systems.cpp src/validation.cpp"
+          g++ -std=c++17 -Wall -Wextra -Werror -O2 -Isrc tests/reset_self_test_host.cpp $COMMON -o reset_self_test
+          g++ -std=c++17 -Wall -Wextra -Werror -O2 -Isrc tests/runtime_self_test_host.cpp $COMMON -o runtime_self_test
+          g++ -std=c++17 -Wall -Wextra -Werror -O2 -Isrc tests/radial_blower_host.cpp $COMMON src/leaf_field.cpp -o radial_blower_test
+
+      - name: Execute detailed reset test
+        run: ./reset_self_test
+
+      - name: Execute calculator runtime self-test
+        run: ./runtime_self_test
+
+      - name: Execute radial blower gameplay test
+        run: ./radial_blower_test
