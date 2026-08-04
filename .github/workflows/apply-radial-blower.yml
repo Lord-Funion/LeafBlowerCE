@@ -28,3 +28,5 @@ jobs:
           git add -A
           git commit -m "Make blower always-on and radial"
           git push origin HEAD:agent/always-on-radial-blower
+
+# Retriggered after the initial workflow-file creation push.
